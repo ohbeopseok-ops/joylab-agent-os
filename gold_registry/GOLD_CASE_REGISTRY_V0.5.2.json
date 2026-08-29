@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
-  "registry_version": "V0.6.2-CANDIDATE",
-  "generated_from": "V0.6.1 merged baseline + PR #17 candidate tests GOLD_084~092",
+  "registry_version": "V0.6.2",
+  "generated_from": "PR #17 atomicity-hardened CI GREEN; GOLD_001~092 certified",
   "allowed_statuses": [
     "CERTIFIED",
     "CANDIDATE",
@@ -1089,7 +1089,7 @@
     },
     {
       "id": "GOLD_084",
-      "status": "CANDIDATE",
+      "status": "CERTIFIED",
       "component": "runtime_orchestrator",
       "source_test": "tests/test_runtime_orchestrator.py",
       "provenance": {
@@ -1102,7 +1102,7 @@
     },
     {
       "id": "GOLD_085",
-      "status": "CANDIDATE",
+      "status": "CERTIFIED",
       "component": "runtime_orchestrator",
       "source_test": "tests/test_runtime_orchestrator.py",
       "provenance": {
@@ -1115,7 +1115,7 @@
     },
     {
       "id": "GOLD_086",
-      "status": "CANDIDATE",
+      "status": "CERTIFIED",
       "component": "runtime_orchestrator",
       "source_test": "tests/test_runtime_orchestrator.py",
       "provenance": {
@@ -1128,7 +1128,7 @@
     },
     {
       "id": "GOLD_087",
-      "status": "CANDIDATE",
+      "status": "CERTIFIED",
       "component": "runtime_orchestrator",
       "source_test": "tests/test_runtime_orchestrator.py",
       "provenance": {
@@ -1141,7 +1141,7 @@
     },
     {
       "id": "GOLD_088",
-      "status": "CANDIDATE",
+      "status": "CERTIFIED",
       "component": "runtime_orchestrator",
       "source_test": "tests/test_runtime_orchestrator.py",
       "provenance": {
@@ -1154,7 +1154,7 @@
     },
     {
       "id": "GOLD_089",
-      "status": "CANDIDATE",
+      "status": "CERTIFIED",
       "component": "runtime_orchestrator",
       "source_test": "tests/test_runtime_orchestrator.py",
       "provenance": {
@@ -1167,7 +1167,7 @@
     },
     {
       "id": "GOLD_090",
-      "status": "CANDIDATE",
+      "status": "CERTIFIED",
       "component": "runtime_orchestrator",
       "source_test": "tests/test_runtime_orchestrator.py",
       "provenance": {
@@ -1180,7 +1180,7 @@
     },
     {
       "id": "GOLD_091",
-      "status": "CANDIDATE",
+      "status": "CERTIFIED",
       "component": "runtime_orchestrator",
       "source_test": "tests/test_runtime_orchestrator.py",
       "provenance": {
@@ -1193,7 +1193,7 @@
     },
     {
       "id": "GOLD_092",
-      "status": "CANDIDATE",
+      "status": "CERTIFIED",
       "component": "runtime_orchestrator",
       "source_test": "tests/test_runtime_orchestrator.py",
       "provenance": {
