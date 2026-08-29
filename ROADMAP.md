@@ -61,7 +61,7 @@ Release anchor:
 - RuntimeOrchestrator persistent evidence sink
 - restart E2E lineage continuation
 
-## V0.6.4 — Crash Consistency / Recovery Reconciliation 🚧
+## V0.6.4 — Crash Consistency / Recovery Reconciliation ✅
 - TX_PREPARED / TX_COMMITTED write-ahead markers
 - deterministic crash transaction IDs
 - cross-store reconciliation
