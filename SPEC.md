@@ -34,6 +34,8 @@ EVS seal
 - duplicate => no new experience or evidence
 - not due => no new experience or evidence
 - adapter failure => no persisted state, no experience, no evidence
+- duplicate experience ID => block before runtime commit
+- duplicate/not-due schedule => adapter is not called
 - only EXECUTED results may enter evidence lineage
 
 ## Evidence semantics
@@ -46,12 +48,12 @@ V0.5.3 contracts for Gold, EVS, EVG, approval audit, and certification semantics
 
 ## Governance
 
-GOLD_084~090 start as CANDIDATE and may become CERTIFIED only after GREEN CI evidence.
+GOLD_084~092 start as CANDIDATE and may become CERTIFIED only after GREEN CI evidence.
 
 ## DoD
 
 - GOLD_001~083 remain green
-- GOLD_084~090 pass
+- GOLD_084~092 pass
 - Python 3.11/3.12/3.13 green
 - Certification Gate green
-- final registry GOLD_001~090 CERTIFIED
+- final registry GOLD_001~092 CERTIFIED
