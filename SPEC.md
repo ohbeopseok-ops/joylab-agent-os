@@ -1,70 +1,75 @@
-# SPEC — JoyLab Agent OS V0.6.3 Persistent Experience / Evidence Store
+# SPEC — JoyLab Agent OS V0.6.4 Crash Consistency / Recovery Reconciliation
 
 ## Status
-IMPLEMENTATION CANDIDATE — PR #18
+IMPLEMENTATION CANDIDATE — PR #19
 
 ## Purpose
 
-Preserve Experience → Evidence lineage across process restarts without mutating the V0.5.3 frozen trust contracts.
+Make RuntimeState and the Persistent Lineage Journal recoverable as one logical commit across process crashes.
 
 ```text
-ExperienceRecord
-   ↓
-PersistentLineageJournal
-   ↓
-EvidenceBuilder
-   ↓
-EvidenceSnapshot / EVS
-   ↓
-same append-only hash chain
+READY
+  ↓
+calculate Experience + EVS + next RuntimeState
+  ↓
+TX_PREPARED
+  ↓
+EXPERIENCE
+  ↓
+EVIDENCE
+  ↓
+RuntimeState atomic save
+  ↓
+TX_COMMITTED
 ```
 
-## Journal contract
+## Write-ahead contract
 
-Each JSONL entry contains:
-- schema_version
-- monotonic sequence
-- kind: EXPERIENCE or EVIDENCE
-- prev_hash
-- entry_hash
-- payload
+TX_PREPARED contains enough immutable information to replay the transaction:
+- deterministic tx_id
+- schedule/domain/run key
+- base runtime sequence
+- Experience payload
+- EVS payload
+- complete next RuntimeState payload
+- next state ID/hash
 
-Each entry hash covers its sequence, kind, previous hash, and payload.
+TX_COMMITTED proves all logical commit stages completed.
 
-## Recovery hard blocks
+## Recovery
 
-Recovery fails on:
-- truncated final line
-- malformed JSON
-- unsupported schema version
-- sequence gap/reordering
-- previous-hash mismatch
-- entry-hash mismatch
-- invalid Experience payload
-- EVS integrity failure
+For a PREPARED transaction without COMMITTED:
+- missing Experience is appended
+- missing EVS is appended
+- RuntimeState is advanced only from the expected base sequence, or accepted if already exactly equal to next state
+- COMMITTED marker is appended last
 
-## Persistent views
+Recovery is idempotent.
 
-`PersistentExperienceStore` provides the ExperienceLogger-compatible operations required by RuntimeOrchestrator.
+## Safe automatic recovery
 
-`PersistentEvidenceStore` persists verified EVS artifacts and can return the latest artifact per exact skill_id + skill_version.
+Automatic recovery is allowed only when the prepared transaction proves the exact next state.
 
-## Restart E2E
+The reconciler blocks instead of guessing when:
+- state diverges from both base and prepared next state
+- state is ahead without a tracked transaction
+- checkpoint references an absent Experience
+- existing Experience conflicts with prepared payload
+- committed state at the same sequence differs from recorded next state
+- a COMMITTED marker has no PREPARED record
 
-After restart, a second successful orchestration uses all recovered Experiences for the exact skill/version, extends source_experience_ids, seals a new EVS, and persists it into the same lineage journal.
+## Compatibility
 
-## Concurrency boundary
-
-V0.6.3 is a single-writer journal contract. Multi-process locking/transactions are intentionally deferred.
+Legacy V0.6.3 journals without TX markers remain readable as LEGACY_CONSISTENT if RuntimeState checkpoints are backed by persisted Experiences.
 
 ## Governance
 
-GOLD_093~102 start as CANDIDATE and may become CERTIFIED only after GREEN CI evidence.
+GOLD_103~112 start as CANDIDATE and may become CERTIFIED only after GREEN CI evidence.
 
 ## DoD
 
-- GOLD_001~092 remain green
-- GOLD_093~102 pass
+- GOLD_001~102 remain green
+- GOLD_103~112 pass
 - Python 3.11/3.12/3.13 green
 - Certification Gate green
-- final registry GOLD_001~102 CERTIFIED
+- final registry GOLD_001~112 CERTIFIED
