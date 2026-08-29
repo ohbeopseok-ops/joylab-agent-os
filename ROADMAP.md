@@ -28,15 +28,24 @@
 - EVS-ID sealing
 - Certification Gate
 - Evidence Memory persistence
-- no fake certification for single-sample decisions
 
-## V0.4 — Skill Evolution 🚧
+## V0.4 — Skill Evolution ✅
 - versioned candidate generation
 - curator activity review
 - stale/deprecate recommendations
 - pinned-skill protection
 - CERTIFIED base immutability
-- candidate submission as new version only
+
+## V0.4.1 — Governance Audit 🚧
+- deterministic Candidate Diff
+- approval/rejection audit log
+- actor / reason / evidence refs
+- append-only approval history
+
+## V0.4.2 — Evidence Graph
+- typed lineage edges
+- Core8 Decision -> Experience -> EVS -> Candidate -> Certified Skill
+- orphan / provenance diagnostics
 
 ## V0.5 — Investment Plugin expansion
 - AI Power
@@ -44,10 +53,6 @@
 - EPS Revision
 - Master Ranking
 - investment-specific Hard Gates
-
-## V0.6 — CS + Content Plugins
-- QA / script / training plugin
-- blog / research / social plugin
 
 ## V1.0 — JoyLab Personal Agent OS
 - unified router
