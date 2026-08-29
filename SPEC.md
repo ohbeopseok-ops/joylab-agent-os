@@ -1,57 +1,57 @@
-# SPEC — JoyLab Agent OS V0.6.1 Scheduled Ingestion
+# SPEC — JoyLab Agent OS V0.6.2 Runtime Orchestration
 
 ## Status
-IMPLEMENTATION CANDIDATE — PR #16
+IMPLEMENTATION CANDIDATE — PR #17
 
 ## Purpose
 
-Execute repeatable domain ingestion without duplicate processing or checkpoint drift.
+Provide one governed runtime path for enabled domain plugins.
 
 ```text
-ScheduleSpec + run_key + now_epoch + signal
-          ↓
-      due / duplicate checks
-          ↓
-      AdapterRegistry
-          ↓
-      ExperienceRecord
-          ↓
-  RuntimeState checkpoint
-          ↓
-     atomic persistence
+DomainPluginRegistry
+      ↓ enabled + domain match
+ScheduleSpec
+      ↓ due + unique run
+AdapterRegistry
+      ↓
+ExperienceRecord
+      ↓
+RuntimeState checkpoint
+      ↓
+ExperienceLogger
+      ↓
+EvidenceBuilder
+      ↓
+EvidenceSnapshot
+      ↓
+EVS seal
 ```
 
-## Determinism
-The runtime does not read wall-clock time. The caller supplies `now_epoch`.
+## Hard rules
 
-This makes replay, tests, and Gold Cases deterministic across environments.
+- disabled plugin => no execution, no persisted state, no evidence
+- plugin/schedule domain mismatch => block
+- duplicate => no new experience or evidence
+- not due => no new experience or evidence
+- adapter failure => no persisted state, no experience, no evidence
+- only EXECUTED results may enter evidence lineage
 
-## State semantics
-A successful ingestion:
-- increments RuntimeState.sequence
-- updates the domain checkpoint to experience_id
-- records the schedule's last success epoch
-- records the run_key for duplicate protection
-- adds the domain to active_plugins
+## Evidence semantics
 
-The following do not mutate persisted state:
-- duplicate run
-- disabled schedule
-- not-due schedule
-- adapter failure
+A successful orchestration builds evidence from the append-only experience set for the exact skill_id + skill_version and seals the resulting snapshot as an EVS artifact.
 
-## Duplicate protection
-run_key history is persisted in RuntimeState metadata and survives restart.
-History is bounded to the latest 100 run keys per schedule.
+## Frozen boundary
+
+V0.5.3 contracts for Gold, EVS, EVG, approval audit, and certification semantics are not rewritten.
 
 ## Governance
-- V0.5.3 frozen contracts remain unchanged.
-- GOLD_077~083 start as CANDIDATE.
-- promotion requires GREEN CI evidence.
+
+GOLD_084~090 start as CANDIDATE and may become CERTIFIED only after GREEN CI evidence.
 
 ## DoD
-- GOLD_001~076 remain green
-- GOLD_077~083 pass
+
+- GOLD_001~083 remain green
+- GOLD_084~090 pass
 - Python 3.11/3.12/3.13 green
 - Certification Gate green
-- final registry GOLD_001~083 CERTIFIED
+- final registry GOLD_001~090 CERTIFIED
