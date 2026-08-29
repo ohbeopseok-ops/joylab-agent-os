@@ -1,38 +1,35 @@
-# TASKS — PR #6 Governance Audit V0.4.1
+# TASKS — PR #7 EvidenceGraph V0.4.2
 
-## Skill Evolution
-- [x] SkillCandidateGenerator
-- [x] SkillCurator
-- [x] GOLD_025 ~ GOLD_029
+## Governance Audit
+- [x] CandidateDiffArtifact
+- [x] ApprovalAuditLog
+- [x] GOLD_030 ~ GOLD_034
 - [x] CI GREEN
 - [x] merged to main
 
-## P0 — Candidate Diff
-- [x] deterministic diff ID
-- [x] SHA-256 digest
-- [x] base/proposed version trace
-- [x] rationale diff
-- [x] change summary diff
-- [x] metadata diff
-- [x] mismatched base blocked
-
-## P0 — Approval Audit Log
-- [x] actor captured
-- [x] decision captured
-- [x] reason required
-- [x] evidence refs captured
-- [x] diff ID captured
-- [x] approvals require evidence
-- [x] append-only unique audit IDs
+## P0 — EvidenceGraph
+- [x] typed GraphNode
+- [x] typed GraphEdge
+- [x] Decision node
+- [x] Experience node
+- [x] Evidence Snapshot node
+- [x] Skill Candidate node
+- [x] Certified Skill node
+- [x] Approval Audit node
+- [x] lineage path query
+- [x] orphan detection
+- [x] strict provenance completeness check
 
 ## P0 — Gold Cases
-- [x] GOLD_030 deterministic candidate diff
-- [x] GOLD_031 wrong base version blocked
-- [x] GOLD_032 who/why/evidence/diff trace
-- [x] GOLD_033 approval without evidence blocked
-- [x] GOLD_034 append-only audit log
+- [x] GOLD_035 full Core8 lineage path
+- [x] GOLD_036 certified provenance complete
+- [x] GOLD_037 missing audit detected
+- [x] GOLD_038 orphan detected
+- [x] GOLD_039 missing endpoint blocked
+- [x] GOLD_040 duplicate edge blocked
 
 ## Next
-- [ ] EvidenceGraph
-- [ ] typed lineage edges
-- [ ] orphan/provenance diagnostics
+- [ ] persist graph snapshots
+- [ ] graph serialization/hash
+- [ ] multi-domain adapters
+- [ ] scheduled curator review
