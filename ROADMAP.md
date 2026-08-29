@@ -35,7 +35,7 @@ Release anchor:
 - no checkpoint advance on adapter failure
 - disabled/not-due no-op semantics
 
-## V0.6.2 — Adapter / Plugin Orchestration 🚧
+## V0.6.2 — Adapter / Plugin Orchestration ✅
 - enabled-plugin gate
 - plugin/schedule domain consistency
 - scheduled adapter execution
