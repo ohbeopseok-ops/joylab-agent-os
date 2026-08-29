@@ -1,44 +1,57 @@
-# SPEC — JoyLab Agent OS V0.6 Persistent Runtime State
+# SPEC — JoyLab Agent OS V0.6.1 Scheduled Ingestion
 
 ## Status
-IMPLEMENTATION CANDIDATE — PR #15
+IMPLEMENTATION CANDIDATE — PR #16
 
 ## Purpose
 
-Persist non-evidence runtime execution state without changing the frozen V0.5.3 trust contracts.
+Execute repeatable domain ingestion without duplicate processing or checkpoint drift.
 
 ```text
-RuntimeState
-  -> canonical JSON
-  -> SHA-256
-  -> RTS-{20 hex}
-  -> atomic JSON write
-  -> restart recovery
+ScheduleSpec + run_key + now_epoch + signal
+          ↓
+      due / duplicate checks
+          ↓
+      AdapterRegistry
+          ↓
+      ExperienceRecord
+          ↓
+  RuntimeState checkpoint
+          ↓
+     atomic persistence
 ```
 
-## State scope
-- runtime_id
-- monotonic sequence/checkpoint marker
-- active plugins
-- per-domain checkpoints
-- non-evidence runtime metadata
+## Determinism
+The runtime does not read wall-clock time. The caller supplies `now_epoch`.
 
-## Hard boundary
-RuntimeStateStore must not rewrite EVS, EVG, Gold provenance, or Approval Audit history.
+This makes replay, tests, and Gold Cases deterministic across environments.
 
-## Integrity
-- corrupt JSON => block
-- hash/id mismatch => block
-- missing state => explicit not-found
-- negative sequence => block
-- successful save uses temp file + fsync + atomic replace
+## State semantics
+A successful ingestion:
+- increments RuntimeState.sequence
+- updates the domain checkpoint to experience_id
+- records the schedule's last success epoch
+- records the run_key for duplicate protection
+- adds the domain to active_plugins
+
+The following do not mutate persisted state:
+- duplicate run
+- disabled schedule
+- not-due schedule
+- adapter failure
+
+## Duplicate protection
+run_key history is persisted in RuntimeState metadata and survives restart.
+History is bounded to the latest 100 run keys per schedule.
 
 ## Governance
-GOLD_071~076 enter as CANDIDATE and may be promoted only after CI evidence is GREEN.
+- V0.5.3 frozen contracts remain unchanged.
+- GOLD_077~083 start as CANDIDATE.
+- promotion requires GREEN CI evidence.
 
 ## DoD
-- GOLD_001~070 remain green
-- GOLD_071~076 pass
+- GOLD_001~076 remain green
+- GOLD_077~083 pass
 - Python 3.11/3.12/3.13 green
-- certification-gate green
-- final registry GOLD_001~076 CERTIFIED
+- Certification Gate green
+- final registry GOLD_001~083 CERTIFIED

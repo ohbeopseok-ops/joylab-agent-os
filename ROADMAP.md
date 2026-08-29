@@ -19,7 +19,7 @@ Frozen SHA:
 Release anchor:
 `release/v0.5.3-frozen`
 
-## V0.6 — Persistent Runtime State 🚧
+## V0.6 — Persistent Runtime State ✅
 - atomic JSON state persistence
 - restart recovery
 - runtime state SHA-256 integrity
@@ -27,10 +27,13 @@ Release anchor:
 - runtime state JSON Schema
 - corruption/integrity hard blocks
 
-## V0.6.1 — Scheduled Ingestion
-- schedule contracts
+## V0.6.1 — Scheduled Ingestion 🚧
+- deterministic schedule contracts
+- caller-supplied now_epoch
 - checkpoint-aware ingestion
-- duplicate-run protection
+- duplicate-run protection across restart
+- no checkpoint advance on adapter failure
+- disabled/not-due no-op semantics
 
 ## V0.6.2 — Adapter / Plugin Orchestration
 - enabled-plugin routing
