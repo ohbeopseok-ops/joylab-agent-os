@@ -22,7 +22,7 @@
 - context sanitation
 - governed write policy
 
-## V0.3.1 — Core8 E2E Adapter 🚧
+## V0.3.1 — Core8 E2E Adapter ✅
 - Core8 decision -> ExperienceRecord
 - Experience -> Evidence Snapshot
 - EVS-ID sealing
@@ -30,12 +30,13 @@
 - Evidence Memory persistence
 - no fake certification for single-sample decisions
 
-## V0.4 — Skill Evolution
-- reflection
-- candidate generation
-- candidate diff
-- human/gate approval
-- no certified in-place mutation
+## V0.4 — Skill Evolution 🚧
+- versioned candidate generation
+- curator activity review
+- stale/deprecate recommendations
+- pinned-skill protection
+- CERTIFIED base immutability
+- candidate submission as new version only
 
 ## V0.5 — Investment Plugin expansion
 - AI Power

@@ -1,28 +1,36 @@
-# TASKS — PR #4 Core8 E2E Adapter
+# TASKS — PR #5 Skill Evolution V0.4
 
-## V0.3 Memory Router
-- [x] MemoryRouter
-- [x] MemoryWritePolicy
-- [x] snapshot integrity
-- [x] GOLD_014 ~ GOLD_021
+## Core8 E2E
+- [x] Core8Adapter
+- [x] GOLD_022 ~ GOLD_024
 - [x] CI GREEN
 - [x] merged to main
 
-## P0 — Core8 Adapter
-- [x] Core8Decision contract
-- [x] Core8Decision -> ExperienceRecord
-- [x] batch ingest to ExperienceLogger
-- [x] EvidenceBuilder integration
-- [x] EVS-ID sealing
-- [x] CertificationGate integration
-- [x] Evidence Memory persistence
+## P0 — Skill Candidate Generator
+- [x] deterministic candidate ID
+- [x] semantic patch-version proposal
+- [x] rationale required
+- [x] change summary required
+- [x] same-version candidate blocked
+- [x] candidate -> new SkillRecord
 
-## P0 — E2E Gold Cases
-- [x] GOLD_022 one decision traverses full pipeline without fake certification
-- [x] GOLD_023 frozen 20-sample batch can certify
-- [x] GOLD_024 hard-gate violation blocks certification but preserves evidence
+## P0 — SkillCurator
+- [x] stale review recommendation
+- [x] deprecate recommendation
+- [x] pinned protection
+- [x] candidate submission
+- [x] CERTIFIED base mutation detection
+- [x] no automatic certified-skill rewrite
+
+## P0 — Gold Cases
+- [x] GOLD_025 deterministic versioned candidate
+- [x] GOLD_026 certified base remains unchanged
+- [x] GOLD_027 curator only recommends deprecation
+- [x] GOLD_028 pinned skill bypass
+- [x] GOLD_029 same-version candidate blocked
 
 ## Next
-- [ ] Skill Candidate Generator
-- [ ] SkillCurator
-- [ ] certified-skill mutation hard block
+- [ ] candidate diff artifact
+- [ ] approval audit record
+- [ ] EvidenceGraph
+- [ ] scheduled curator review
