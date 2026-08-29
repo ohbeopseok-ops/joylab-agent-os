@@ -203,3 +203,56 @@ def test_gold_090_second_success_extends_evidence_lineage(tmp_path):
     assert result.evidence.samples == 2
     assert result.evidence.source_experience_ids == ("DEC-001", "DEC-002")
     assert logger.count("CORE8_DECISION") == 2
+
+
+def test_gold_091_duplicate_experience_id_never_advances_runtime_state(tmp_path):
+    orchestrator, ingestion, logger = build(tmp_path)
+    orchestrator.execute(
+        plugin_id="core8-plugin",
+        schedule=schedule(),
+        run_key="RUN-001",
+        now_epoch=1000,
+        signal=signal("DEC-SAME"),
+    )
+
+    with pytest.raises(ValueError, match="EXPERIENCE_ID_ALREADY_EXISTS"):
+        orchestrator.execute(
+            plugin_id="core8-plugin",
+            schedule=schedule(),
+            run_key="RUN-002",
+            now_epoch=4600,
+            signal=signal("DEC-SAME"),
+        )
+
+    state = ingestion.state_store.recover()
+    assert state.sequence == 1
+    assert state.checkpoints["core8"] == "DEC-SAME"
+    assert logger.count("CORE8_DECISION") == 1
+
+
+def test_gold_092_duplicate_schedule_does_not_call_adapter_again(tmp_path):
+    calls = {"count": 0}
+
+    def counted(value):
+        calls["count"] += 1
+        return Core8Adapter.to_experience(value)
+
+    orchestrator, _, logger = build(tmp_path, adapter=counted)
+    orchestrator.execute(
+        plugin_id="core8-plugin",
+        schedule=schedule(),
+        run_key="RUN-001",
+        now_epoch=1000,
+        signal=signal("DEC-001"),
+    )
+    result = orchestrator.execute(
+        plugin_id="core8-plugin",
+        schedule=schedule(),
+        run_key="RUN-001",
+        now_epoch=5000,
+        signal=signal("DEC-002"),
+    )
+
+    assert result.status == "DUPLICATE"
+    assert calls["count"] == 1
+    assert logger.count("CORE8_DECISION") == 1
