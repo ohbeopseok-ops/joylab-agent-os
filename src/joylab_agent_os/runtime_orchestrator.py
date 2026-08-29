@@ -30,11 +30,13 @@ class RuntimeOrchestrator:
         ingestion: ScheduledIngestionRunner,
         experiences: ExperienceLogger,
         evidence_builder: EvidenceBuilder | None = None,
+        evidence_store: Any | None = None,
     ) -> None:
         self.plugins = plugins
         self.ingestion = ingestion
         self.experiences = experiences
         self.evidence_builder = evidence_builder or EvidenceBuilder()
+        self.evidence_store = evidence_store
 
     def execute(
         self,
@@ -102,6 +104,8 @@ class RuntimeOrchestrator:
             records,
         )
         artifact = seal_snapshot(snapshot)
+        if self.evidence_store is not None:
+            self.evidence_store.append(artifact)
 
         return OrchestrationResult(
             status="EXECUTED",
