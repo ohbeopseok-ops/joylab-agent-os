@@ -23,11 +23,11 @@ class EvidenceGraphSnapshotArtifact:
 def graph_payload(graph: EvidenceGraph) -> dict[str, Any]:
     nodes = tuple(
         {
-            "node_id": node_id,
-            "node_type": graph.node(node_id).node_type.value,
-            "label": graph.node(node_id).label,
+            "node_id": node.node_id,
+            "node_type": node.node_type.value,
+            "label": node.label,
         }
-        for node_id in sorted(graph._nodes)
+        for node in graph.nodes()
     )
     edges = tuple(
         {
