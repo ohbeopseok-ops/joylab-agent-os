@@ -27,7 +27,7 @@ Release anchor:
 - runtime state JSON Schema
 - corruption/integrity hard blocks
 
-## V0.6.1 — Scheduled Ingestion 🚧
+## V0.6.1 — Scheduled Ingestion ✅
 - deterministic schedule contracts
 - caller-supplied now_epoch
 - checkpoint-aware ingestion
@@ -35,10 +35,15 @@ Release anchor:
 - no checkpoint advance on adapter failure
 - disabled/not-due no-op semantics
 
-## V0.6.2 — Adapter / Plugin Orchestration
-- enabled-plugin routing
-- multi-domain runtime lifecycle
-- compatibility-preserving migrations
+## V0.6.2 — Adapter / Plugin Orchestration 🚧
+- enabled-plugin gate
+- plugin/schedule domain consistency
+- scheduled adapter execution
+- append-only Experience logging
+- EvidenceSnapshot generation
+- EVS sealing on successful execution only
+- duplicate/not-due/disabled/failure evidence suppression
+- compatibility-preserving orchestration boundary
 
 ## V1.0 — JoyLab Personal Agent OS
 - unified router
