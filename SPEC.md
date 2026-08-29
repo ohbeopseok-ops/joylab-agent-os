@@ -1,58 +1,49 @@
-# SPEC — JoyLab Agent OS V0.4.3 EvidenceGraph Integrity
+# SPEC — JoyLab Agent OS V0.5 Investment Adapters
 
 ## Status
-
-**IMPLEMENTATION CANDIDATE: PR #8**
+**IMPLEMENTATION CANDIDATE: PR #9**
 
 ## 1. Purpose
 
-Seal a complete provenance graph so lineage changes become detectable.
+Normalize the main investment engines into the same Agent OS evidence boundary.
 
 ```text
-EvidenceGraph
-  -> deterministic nodes/edges
-  -> canonical JSON
-  -> SHA-256
-  -> EVG-{first 20 hex chars}
-  -> EvidenceGraphSnapshotArtifact
+AI Power --------┐
+NVDA Event ------┤
+EPS Revision ----┼-> ExperienceRecord -> Evidence -> EVS/EVG -> Governance
+Master Ranking --┘
 ```
 
-## 2. Artifact contract
+## 2. Source contracts reviewed
 
-The graph snapshot contains:
-- schema_version
-- graph_snapshot_id
-- sha256
-- nodes
-- edges
+From `joylab-core8-engine`:
+- `src/joylab_core8/eps_revision.py`
+- `NVDA_EVENT_ENGINE_V0.1_MASTER_BUILD_PROMPT.md`
+- `docs/investment-analysis/frameworks/MASTER_OPPORTUNITY_RANKING_V0.1.md`
+- `docs/investment-analysis/MASTER_RANKING_REGISTRY_V0.1.json`
 
-Snapshot ID format:
-`EVG-[0-9a-f]{20}`
+## 3. Hard invariants
 
-## 3. Determinism
+### AI Power
+Power constraints may affect semiconductor and power-infrastructure directions differently.
+Do not flatten a dual-direction signal.
 
-Node ordering is by node_id.
-Edge ordering is by source_id, target_id, edge_type.
+### NVDA Event
+Missing critical evidence remains UNKNOWN.
+None is never silently converted to numeric zero.
 
-Equivalent graphs must produce identical:
-- canonical JSON
-- SHA-256
-- graph snapshot ID
+### EPS Revision
+`revision_1m_pct <= -10.0` emits:
+- `hard_gate_violation`
+- `buy_block`
 
-## 4. Tamper detection
+### Master Ranking
+- rank #1 does not equal BUY
+- thesis, execution, and portfolio gates must pass
+- human approval remains mandatory
 
-Any change to:
-- node ID/type/label
-- source/target/edge type
-- sha256
-- graph snapshot ID
-
-must invalidate verification.
-
-## 5. Definition of Done
-
-- GOLD_001~040 remain green
-- GOLD_041~044 pass
+## 4. Definition of Done
+- GOLD_001~044 remain green
+- GOLD_045~052 pass
 - Python 3.11/3.12/3.13 CI green
-- graph snapshot JSON Schema committed
-- node/edge/hash tampering detected
+- all four adapters emit normalized ExperienceRecord

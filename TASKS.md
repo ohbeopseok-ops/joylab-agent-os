@@ -1,29 +1,31 @@
-# TASKS — PR #8 EvidenceGraph Integrity V0.4.3
+# TASKS — PR #9 Investment Adapters V0.5
 
-## EvidenceGraph
-- [x] typed lineage graph
-- [x] GOLD_035 ~ GOLD_040
+## Graph Integrity
+- [x] EVG snapshot
+- [x] SHA-256
+- [x] GOLD_041 ~ GOLD_044
 - [x] CI GREEN
 - [x] merged to main
 
-## P0 — Graph Snapshot Integrity
-- [x] deterministic node ordering
-- [x] deterministic edge ordering
-- [x] canonical JSON
-- [x] SHA-256 digest
-- [x] immutable EVG snapshot ID
-- [x] JSON Schema
-- [x] artifact JSON serialization
-- [x] snapshot verification
+## P0 — Domain Adapters
+- [x] AI Power
+- [x] NVDA Event
+- [x] EPS Revision
+- [x] Master Ranking
+- [x] normalized ExperienceRecord output
 
-## P0 — Gold Cases
-- [x] GOLD_041 deterministic graph snapshot
-- [x] GOLD_042 node tamper detected
-- [x] GOLD_043 edge tamper detected
-- [x] GOLD_044 hash tamper detected
+## P0 — Invariants
+- [x] AI Power dual-direction preserved
+- [x] NVDA UNKNOWN not coerced to zero
+- [x] EPS revision <= -10% emits BUY_BLOCK + hard gate
+- [x] Ranking #1 != BUY
+- [x] portfolio gate can block top-ranked candidate
+- [x] human approval remains required for ranking success
+
+## Gold Cases
+- [x] GOLD_045 ~ GOLD_052
 
 ## Next
-- [ ] AI Power adapter
-- [ ] NVDA Event adapter
-- [ ] EPS Revision adapter
-- [ ] Master Ranking adapter
+- [ ] adapter registry
+- [ ] full domain E2E lineage
+- [ ] scheduled ingestion
