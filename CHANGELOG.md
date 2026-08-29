@@ -4,9 +4,40 @@ All notable JoyLab Agent OS milestones are recorded here.
 
 ## [Unreleased]
 
+Future work must start after the V0.5.3 frozen certified baseline.
+
+## [0.5.3-frozen] — 2026-08-29
+
+Frozen certified baseline at PR #13.
+
+Frozen commit:
+`9e9cb2cfc75aaf6430225c729522c72d1306f71a`
+
+Release anchor:
+`release/v0.5.3-frozen`
+
 ### Added
-- V0.4.3 EvidenceGraph snapshot integrity.
-- V0.5 normalized investment adapters for AI Power, NVDA Event, EPS Revision, and Master Ranking.
+- AdapterRegistry and DomainPluginRegistry.
+- Governed Gold Case JSON Registry.
+- Unified V0.5 Certification Gate.
+- Python 3.11 / 3.12 / 3.13 matrix dependency.
+- Regression gate.
+- JSON Schema gate.
+- EVS integrity gate.
+- EVG integrity gate.
+- Approval Audit gate.
+
+### Verification
+- Python 3.11: GREEN.
+- Python 3.12: GREEN.
+- Python 3.13: GREEN.
+- GOLD_001 through GOLD_070: CERTIFIED.
+- Unified Certification Gate: GREEN.
+
+### Freeze rule
+- V0.5.3 behavior is historically fixed at the frozen commit.
+- Future work starts as V0.6+.
+- The release anchor must not move forward.
 
 ## [0.4.2-frozen] — 2026-08-29
 
