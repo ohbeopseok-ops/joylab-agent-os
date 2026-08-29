@@ -1,21 +1,25 @@
-# TASKS — PR #15 Persistent Runtime State V0.6
+# TASKS — PR #16 Scheduled Ingestion V0.6.1
 
-## Frozen baseline
-- [x] V0.5.3 remains anchored at release/v0.5.3-frozen
-- [x] V0.6 work occurs only on a new feature branch
-
-## P0 — Runtime state
-- [x] RuntimeState model
-- [x] RuntimeStateEnvelope
-- [x] deterministic RTS ID
-- [x] SHA-256 integrity
-- [x] atomic temp-write + os.replace
+## V0.6 runtime foundation
+- [x] persistent RuntimeState
 - [x] restart recovery
-- [x] corrupt JSON block
-- [x] integrity mismatch block
-- [x] JSON Schema
+- [x] GOLD_071~076 CERTIFIED
+- [x] PR #15 merged
+
+## P0 — Scheduled ingestion
+- [x] ScheduleSpec
+- [x] deterministic now_epoch input
+- [x] interval due check
+- [x] checkpoint-aware execution
+- [x] duplicate-run protection across restart
+- [x] adapter routing
+- [x] adapter failure leaves state unchanged
+- [x] disabled schedule no-op
+- [x] not-due no-op
+- [x] successful run increments runtime sequence
+- [x] bounded run history
 
 ## Gold
-- [x] GOLD_071~076 coded as CANDIDATE
-- [x] promote only after GREEN CI
-- [x] final CI requires GOLD_001~076 CERTIFIED
+- [x] GOLD_077~083 coded as CANDIDATE
+- [ ] promote only after GREEN CI
+- [ ] final CI requires GOLD_001~083 CERTIFIED
