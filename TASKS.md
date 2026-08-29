@@ -1,28 +1,29 @@
-# TASKS — PR #18 Persistent Experience / Evidence Store V0.6.3
+# TASKS — PR #19 Crash Consistency / Recovery Reconciliation V0.6.4
 
 ## Baseline
-- [x] V0.6.2 Runtime Orchestration merged
-- [x] GOLD_001~092 CERTIFIED
+- [x] V0.6.3 Persistent Experience / Evidence Store merged
+- [x] GOLD_001~102 CERTIFIED
 - [x] V0.5.3 frozen baseline untouched
 
-## P0 — Persistent lineage
-- [x] PersistentLineageJournal
-- [x] append-only JSONL
-- [x] SHA-256 chained entries
-- [x] monotonic sequence validation
-- [x] PersistentExperienceStore
-- [x] PersistentEvidenceStore
-- [x] EVS integrity verification on recovery
-- [x] duplicate Experience ID block across restart
-- [x] duplicate EVS ID block
-- [x] truncated tail detection
-- [x] tamper detection
-- [x] deleted-entry/sequence detection
-- [x] RuntimeOrchestrator persistent evidence sink
-- [x] restart E2E lineage continuation
-- [x] JSON Schema
+## P0 — Crash consistency
+- [x] TX_PREPARED lineage marker
+- [x] TX_COMMITTED lineage marker
+- [x] deterministic RTX transaction ID
+- [x] prepared payload carries Experience / EVS / next RuntimeState
+- [x] RuntimeState payload recovery helper
+- [x] deterministic prepare_next_state API
+- [x] RecoveryReconciler
+- [x] crash after PREPARED recovery
+- [x] crash after Experience recovery
+- [x] crash after Evidence recovery
+- [x] crash after RuntimeState recovery
+- [x] idempotent reconciliation
+- [x] lineage-ahead RuntimeState restoration
+- [x] untracked state-ahead hard block
+- [x] conflicting Experience hard block
+- [x] RuntimeOrchestrator crash-safe commit path
 
 ## Gold
-- [x] GOLD_093~102 coded as CANDIDATE
-- [x] promote only after GREEN CI
-- [x] final CI requires GOLD_001~102 CERTIFIED
+- [x] GOLD_103~112 coded as CANDIDATE
+- [ ] promote only after GREEN CI
+- [ ] final CI requires GOLD_001~112 CERTIFIED
