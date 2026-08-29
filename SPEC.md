@@ -1,85 +1,75 @@
-# SPEC — JoyLab Agent OS V0.4 Skill Evolution
+# SPEC — JoyLab Agent OS V0.4.1 Governance Audit
 
 ## Status
 
-**IMPLEMENTATION CANDIDATE: PR #5**
+**IMPLEMENTATION CANDIDATE: PR #6**
 
-## 1. Principle
+## 1. Purpose
 
-The system may propose improvements, but a CERTIFIED skill is never edited in place.
+Make every proposed skill change reviewable and every approval/rejection attributable.
 
 ```text
-CERTIFIED v1.0.0
-   -> improvement proposal
-   -> SkillCandidate v1.0.1
-   -> register DISCOVERED
-   -> transition CANDIDATE
-   -> future evidence/testing/certification
+CERTIFIED Skill
+  -> SkillCandidate
+  -> CandidateDiffArtifact
+  -> Evidence refs
+  -> Approval / Rejection
+  -> ApprovalAuditRecord
 ```
 
-The original CERTIFIED version remains unchanged.
+The audit layer answers:
+- who decided?
+- what changed?
+- why was it approved/rejected?
+- which evidence supported the decision?
+- which candidate diff was reviewed?
 
-## 2. SkillCandidateGenerator
+## 2. Candidate Diff
 
-Inputs:
-- base SkillRecord
-- rationale
-- change summary
-- optional proposed version
+CandidateDiffBuilder produces:
+- diff_id
+- candidate_id
+- skill_id
+- base_version
+- proposed_version
+- structured changes
+- SHA-256
 
-Outputs:
-- deterministic candidate_id
-- base version
-- proposed version
-- rationale
-- change summary
+The same base + candidate produces the same diff artifact.
 
-Default version behavior is patch bump.
+## 3. Approval Audit
 
-## 3. SkillCurator
+ApprovalAuditRecord contains:
+- audit_id
+- candidate_id
+- skill_id
+- base_version
+- proposed_version
+- actor
+- decision
+- reason
+- evidence_refs
+- diff_id
+- created_at
 
-Inspired by Hermes Curator but restricted to governance-safe actions.
+Approval requires at least one evidence reference.
+Rejection may be recorded without evidence refs when the reason itself explains the block.
 
-It may:
-- KEEP
-- REVIEW
-- PROPOSE_DEPRECATE
-- propose a new candidate version
-- submit that new candidate version
+## 4. Immutability
 
-It may not:
-- patch a CERTIFIED record in place
-- silently deprecate a CERTIFIED record
-- weaken certification rules
-- bypass candidate/testing gates
+ApprovalAuditLog is append-only.
+Duplicate audit IDs are rejected.
 
-## 4. Activity policy
+Audit records do not mutate:
+- candidate
+- base skill
+- Evidence Snapshot
+- Certification Result
 
-Default thresholds:
-- stale_after_days = 30
-- archive_after_days = 90
-- pinned skills bypass activity recommendations
+## 5. Definition of Done
 
-At archive threshold the curator emits a recommendation only.
-
-## 5. Hermes mapping
-
-Adopted:
-- lifecycle maintenance concept
-- stale/archive thresholds
-- pinned protection
-- background-review-ready design
-
-Modified:
-- automatic patch -> versioned candidate proposal
-- automatic archive -> deprecation recommendation
-
-Rejected:
-- direct mutation of CERTIFIED skills
-
-## 6. Definition of Done
-
-- GOLD_001~024 remain green
-- GOLD_025~029 pass
+- GOLD_001~029 remain green
+- GOLD_030~034 pass
 - Python 3.11/3.12/3.13 CI green
-- CERTIFIED base remains byte/record equivalent after candidate submission
+- approval without evidence is impossible
+- duplicate audit entry is blocked
