@@ -136,3 +136,89 @@ def test_gold_100_restart_rebuilds_same_experience_to_evidence_lineage(tmp_path)
     assert rebuilt.snapshot.confidence == 90.0
     assert rebuilt.snapshot.source_experience_ids == ("EXP-001", "EXP-002")
     assert verify_snapshot(rebuilt) is True
+
+
+def test_gold_101_orchestrator_restart_extends_persistent_lineage(tmp_path):
+    from joylab_agent_os.adapter_registry import AdapterRegistry, DomainPlugin, DomainPluginRegistry
+    from joylab_agent_os.adapters.core8 import Core8Adapter, Core8Decision
+    from joylab_agent_os.runtime_orchestrator import RuntimeOrchestrator
+    from joylab_agent_os.runtime_state import RuntimeStateStore
+    from joylab_agent_os.scheduled_ingestion import ScheduleSpec, ScheduledIngestionRunner
+
+    lineage_path = tmp_path / "lineage.jsonl"
+    runtime_path = tmp_path / "runtime.json"
+
+    def build_orchestrator():
+        adapters = AdapterRegistry()
+        adapters.register("core8", Core8Decision, Core8Adapter.to_experience)
+        plugins = DomainPluginRegistry()
+        plugins.register(DomainPlugin("core8-plugin", "core8", "1.0.0", True))
+        journal = PersistentLineageJournal(lineage_path)
+        experiences = PersistentExperienceStore(journal)
+        evidence = PersistentEvidenceStore(journal)
+        ingestion = ScheduledIngestionRunner(
+            state_store=RuntimeStateStore(runtime_path),
+            adapters=adapters,
+        )
+        return RuntimeOrchestrator(
+            plugins=plugins,
+            ingestion=ingestion,
+            experiences=experiences,
+            evidence_builder=EvidenceBuilder(),
+            evidence_store=evidence,
+        ), evidence
+
+    def decision(decision_id):
+        return Core8Decision(
+            decision_id=decision_id,
+            skill_id="CORE8_DECISION",
+            skill_version="1.0.0",
+            ticker="005930",
+            action="HOLD",
+            confidence=90.0,
+            success=True,
+        )
+
+    spec = ScheduleSpec("core8-hourly", "core8", 3600, True)
+    first, _ = build_orchestrator()
+    first.execute(
+        plugin_id="core8-plugin",
+        schedule=spec,
+        run_key="RUN-001",
+        now_epoch=1000,
+        signal=decision("EXP-001"),
+    )
+
+    restarted, evidence = build_orchestrator()
+    result = restarted.execute(
+        plugin_id="core8-plugin",
+        schedule=spec,
+        run_key="RUN-002",
+        now_epoch=4600,
+        signal=decision("EXP-002"),
+    )
+
+    assert result.evidence is not None
+    assert result.evidence.samples == 2
+    assert result.evidence.source_experience_ids == ("EXP-001", "EXP-002")
+    latest = evidence.latest_for_skill("CORE8_DECISION", "1.0.0")
+    assert latest is not None
+    assert latest.snapshot.samples == 2
+    assert len(evidence.all()) == 2
+
+
+def test_gold_102_deleted_entry_breaks_sequence_or_chain(tmp_path):
+    path = tmp_path / "lineage.jsonl"
+    experiences = PersistentExperienceStore(path)
+    experiences.append(experience("EXP-001"))
+    experiences.append(experience("EXP-002"))
+    experiences.append(experience("EXP-003"))
+
+    lines = path.read_text(encoding="utf-8").splitlines()
+    path.write_text("\n".join([lines[0], lines[2]]) + "\n", encoding="utf-8")
+
+    with pytest.raises(
+        ValueError,
+        match="LINEAGE_SEQUENCE_MISMATCH|LINEAGE_PREV_HASH_MISMATCH",
+    ):
+        PersistentLineageJournal(path).recover_entries()
