@@ -88,6 +88,25 @@ class ScheduledIngestionRunner:
             return True
         return now_epoch >= last + spec.interval_seconds
 
+    def check_status(
+        self,
+        *,
+        spec: ScheduleSpec,
+        run_key: str,
+        now_epoch: int,
+    ) -> tuple[str, RuntimeState]:
+        self._validate(spec, run_key, now_epoch)
+        state = self.current_state()
+        history = self._history(state)
+
+        if run_key in history.get(spec.schedule_id, []):
+            return "DUPLICATE", state
+        if not spec.enabled:
+            return "DISABLED", state
+        if not self.is_due(spec, state, now_epoch):
+            return "NOT_DUE", state
+        return "READY", state
+
     def run(
         self,
         *,
@@ -96,12 +115,21 @@ class ScheduledIngestionRunner:
         now_epoch: int,
         signal: Any,
     ) -> ScheduledIngestionResult:
+        status, state = self.check_status(
+            spec=spec,
+            run_key=run_key,
+            now_epoch=now_epoch,
+        )
+        if status != "READY":
+            return ScheduledIngestionResult(status, None, state)
+
         experience = self.adapters.route(spec.domain, signal)
-        return self.run_prepared(
+        return self._commit_prepared(
             spec=spec,
             run_key=run_key,
             now_epoch=now_epoch,
             experience=experience,
+            state=state,
         )
 
     def run_prepared(
@@ -112,20 +140,32 @@ class ScheduledIngestionRunner:
         now_epoch: int,
         experience: ExperienceRecord,
     ) -> ScheduledIngestionResult:
-        self._validate(spec, run_key, now_epoch)
-        state = self._state()
+        status, state = self.check_status(
+            spec=spec,
+            run_key=run_key,
+            now_epoch=now_epoch,
+        )
+        if status != "READY":
+            return ScheduledIngestionResult(status, None, state)
+
+        return self._commit_prepared(
+            spec=spec,
+            run_key=run_key,
+            now_epoch=now_epoch,
+            experience=experience,
+            state=state,
+        )
+
+    def _commit_prepared(
+        self,
+        *,
+        spec: ScheduleSpec,
+        run_key: str,
+        now_epoch: int,
+        experience: ExperienceRecord,
+        state: RuntimeState,
+    ) -> ScheduledIngestionResult:
         history = self._history(state)
-        already_seen = run_key in history.get(spec.schedule_id, [])
-
-        if already_seen:
-            return ScheduledIngestionResult("DUPLICATE", None, state)
-
-        if not spec.enabled:
-            return ScheduledIngestionResult("DISABLED", None, state)
-
-        if not self.is_due(spec, state, now_epoch):
-            return ScheduledIngestionResult("NOT_DUE", None, state)
-
         next_history = {k: list(v) for k, v in history.items()}
         schedule_runs = next_history.setdefault(spec.schedule_id, [])
         schedule_runs.append(run_key)
