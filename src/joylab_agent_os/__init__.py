@@ -20,6 +20,8 @@ from .memory_write_policy import MemoryWritePolicy
 from .adapters.core8 import Core8Adapter, Core8Decision, Core8E2EResult
 from .skill_candidate import SkillCandidate, SkillCandidateGenerator
 from .skill_curator import CuratorRecommendation, SkillCurator
+from .candidate_diff import CandidateDiffArtifact, CandidateDiffBuilder
+from .approval_audit import ApprovalAuditLog, ApprovalAuditRecord, ApprovalDecision
 
 __all__ = [
     "SkillState",
@@ -46,4 +48,9 @@ __all__ = [
     "SkillCandidateGenerator",
     "CuratorRecommendation",
     "SkillCurator",
+    "CandidateDiffArtifact",
+    "CandidateDiffBuilder",
+    "ApprovalAuditLog",
+    "ApprovalAuditRecord",
+    "ApprovalDecision",
 ]
