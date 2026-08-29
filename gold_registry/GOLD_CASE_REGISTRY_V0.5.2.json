@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
-  "registry_version": "V0.6.1",
-  "generated_from": "PR #16 initial CI GREEN; GOLD_001~083 certified",
+  "registry_version": "V0.6.2",
+  "generated_from": "PR #17 atomicity-hardened CI GREEN; GOLD_001~092 certified",
   "allowed_statuses": [
     "CERTIFIED",
     "CANDIDATE",
@@ -1084,6 +1084,123 @@
         "pull_request": 16,
         "evidence_refs": [
           "tests/test_scheduled_ingestion.py"
+        ]
+      }
+    },
+    {
+      "id": "GOLD_084",
+      "status": "CERTIFIED",
+      "component": "runtime_orchestrator",
+      "source_test": "tests/test_runtime_orchestrator.py",
+      "provenance": {
+        "repository": "ohbeopseok-ops/joylab-agent-os",
+        "pull_request": 17,
+        "evidence_refs": [
+          "tests/test_runtime_orchestrator.py"
+        ]
+      }
+    },
+    {
+      "id": "GOLD_085",
+      "status": "CERTIFIED",
+      "component": "runtime_orchestrator",
+      "source_test": "tests/test_runtime_orchestrator.py",
+      "provenance": {
+        "repository": "ohbeopseok-ops/joylab-agent-os",
+        "pull_request": 17,
+        "evidence_refs": [
+          "tests/test_runtime_orchestrator.py"
+        ]
+      }
+    },
+    {
+      "id": "GOLD_086",
+      "status": "CERTIFIED",
+      "component": "runtime_orchestrator",
+      "source_test": "tests/test_runtime_orchestrator.py",
+      "provenance": {
+        "repository": "ohbeopseok-ops/joylab-agent-os",
+        "pull_request": 17,
+        "evidence_refs": [
+          "tests/test_runtime_orchestrator.py"
+        ]
+      }
+    },
+    {
+      "id": "GOLD_087",
+      "status": "CERTIFIED",
+      "component": "runtime_orchestrator",
+      "source_test": "tests/test_runtime_orchestrator.py",
+      "provenance": {
+        "repository": "ohbeopseok-ops/joylab-agent-os",
+        "pull_request": 17,
+        "evidence_refs": [
+          "tests/test_runtime_orchestrator.py"
+        ]
+      }
+    },
+    {
+      "id": "GOLD_088",
+      "status": "CERTIFIED",
+      "component": "runtime_orchestrator",
+      "source_test": "tests/test_runtime_orchestrator.py",
+      "provenance": {
+        "repository": "ohbeopseok-ops/joylab-agent-os",
+        "pull_request": 17,
+        "evidence_refs": [
+          "tests/test_runtime_orchestrator.py"
+        ]
+      }
+    },
+    {
+      "id": "GOLD_089",
+      "status": "CERTIFIED",
+      "component": "runtime_orchestrator",
+      "source_test": "tests/test_runtime_orchestrator.py",
+      "provenance": {
+        "repository": "ohbeopseok-ops/joylab-agent-os",
+        "pull_request": 17,
+        "evidence_refs": [
+          "tests/test_runtime_orchestrator.py"
+        ]
+      }
+    },
+    {
+      "id": "GOLD_090",
+      "status": "CERTIFIED",
+      "component": "runtime_orchestrator",
+      "source_test": "tests/test_runtime_orchestrator.py",
+      "provenance": {
+        "repository": "ohbeopseok-ops/joylab-agent-os",
+        "pull_request": 17,
+        "evidence_refs": [
+          "tests/test_runtime_orchestrator.py"
+        ]
+      }
+    },
+    {
+      "id": "GOLD_091",
+      "status": "CERTIFIED",
+      "component": "runtime_orchestrator",
+      "source_test": "tests/test_runtime_orchestrator.py",
+      "provenance": {
+        "repository": "ohbeopseok-ops/joylab-agent-os",
+        "pull_request": 17,
+        "evidence_refs": [
+          "tests/test_runtime_orchestrator.py"
+        ]
+      }
+    },
+    {
+      "id": "GOLD_092",
+      "status": "CERTIFIED",
+      "component": "runtime_orchestrator",
+      "source_test": "tests/test_runtime_orchestrator.py",
+      "provenance": {
+        "repository": "ohbeopseok-ops/joylab-agent-os",
+        "pull_request": 17,
+        "evidence_refs": [
+          "tests/test_runtime_orchestrator.py"
         ]
       }
     }

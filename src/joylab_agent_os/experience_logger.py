@@ -13,8 +13,11 @@ class ExperienceLogger:
         self._records: list[ExperienceRecord] = []
         self._ids: set[str] = set()
 
+    def contains_id(self, experience_id: str) -> bool:
+        return experience_id in self._ids
+
     def append(self, record: ExperienceRecord) -> None:
-        if record.experience_id in self._ids:
+        if self.contains_id(record.experience_id):
             raise ValueError("EXPERIENCE_ID_ALREADY_EXISTS")
         self._records.append(record)
         self._ids.add(record.experience_id)

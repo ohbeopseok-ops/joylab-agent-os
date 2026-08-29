@@ -17,6 +17,7 @@ from .runtime_state import (
 from .scheduled_ingestion import (
     ScheduleSpec, ScheduledIngestionResult, ScheduledIngestionRunner,
 )
+from .runtime_orchestrator import RuntimeOrchestrator, OrchestrationResult
 from .memory_router import MemoryRouter
 from .memory_write_policy import MemoryWritePolicy
 from .adapters.core8 import Core8Adapter, Core8Decision, Core8E2EResult
