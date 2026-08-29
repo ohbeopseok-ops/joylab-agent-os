@@ -1,0 +1,779 @@
+{
+  "schema_version": "1.0",
+  "registry_version": "V0.5.2",
+  "generated_from": "merged main through PR #11",
+  "allowed_statuses": [
+    "CERTIFIED",
+    "CANDIDATE",
+    "INVALID"
+  ],
+  "cases": [
+    {
+      "id": "GOLD_001",
+      "status": "CERTIFIED",
+      "component": "governed_core",
+      "source_test": "tests/test_gold_cases.py",
+      "provenance": {
+        "pull_request": 1,
+        "repository": "ohbeopseok-ops/joylab-agent-os",
+        "evidence_refs": [
+          "tests/test_gold_cases.py"
+        ]
+      }
+    },
+    {
+      "id": "GOLD_002",
+      "status": "CERTIFIED",
+      "component": "governed_core",
+      "source_test": "tests/test_gold_cases.py",
+      "provenance": {
+        "pull_request": 1,
+        "repository": "ohbeopseok-ops/joylab-agent-os",
+        "evidence_refs": [
+          "tests/test_gold_cases.py"
+        ]
+      }
+    },
+    {
+      "id": "GOLD_003",
+      "status": "CERTIFIED",
+      "component": "governed_core",
+      "source_test": "tests/test_gold_cases.py",
+      "provenance": {
+        "pull_request": 1,
+        "repository": "ohbeopseok-ops/joylab-agent-os",
+        "evidence_refs": [
+          "tests/test_gold_cases.py"
+        ]
+      }
+    },
+    {
+      "id": "GOLD_004",
+      "status": "CERTIFIED",
+      "component": "governed_core",
+      "source_test": "tests/test_gold_cases.py",
+      "provenance": {
+        "pull_request": 1,
+        "repository": "ohbeopseok-ops/joylab-agent-os",
+        "evidence_refs": [
+          "tests/test_gold_cases.py"
+        ]
+      }
+    },
+    {
+      "id": "GOLD_005",
+      "status": "CERTIFIED",
+      "component": "governed_core",
+      "source_test": "tests/test_gold_cases.py",
+      "provenance": {
+        "pull_request": 1,
+        "repository": "ohbeopseok-ops/joylab-agent-os",
+        "evidence_refs": [
+          "tests/test_gold_cases.py"
+        ]
+      }
+    },
+    {
+      "id": "GOLD_006",
+      "status": "CERTIFIED",
+      "component": "governed_core",
+      "source_test": "tests/test_gold_cases.py",
+      "provenance": {
+        "pull_request": 1,
+        "repository": "ohbeopseok-ops/joylab-agent-os",
+        "evidence_refs": [
+          "tests/test_gold_cases.py"
+        ]
+      }
+    },
+    {
+      "id": "GOLD_007",
+      "status": "CERTIFIED",
+      "component": "governed_core",
+      "source_test": "tests/test_gold_cases.py",
+      "provenance": {
+        "pull_request": 1,
+        "repository": "ohbeopseok-ops/joylab-agent-os",
+        "evidence_refs": [
+          "tests/test_gold_cases.py"
+        ]
+      }
+    },
+    {
+      "id": "GOLD_008",
+      "status": "CERTIFIED",
+      "component": "evidence_builder",
+      "source_test": "tests/test_evidence_builder.py",
+      "provenance": {
+        "pull_request": 2,
+        "repository": "ohbeopseok-ops/joylab-agent-os",
+        "evidence_refs": [
+          "tests/test_evidence_builder.py"
+        ]
+      }
+    },
+    {
+      "id": "GOLD_009",
+      "status": "CERTIFIED",
+      "component": "evidence_builder",
+      "source_test": "tests/test_evidence_builder.py",
+      "provenance": {
+        "pull_request": 2,
+        "repository": "ohbeopseok-ops/joylab-agent-os",
+        "evidence_refs": [
+          "tests/test_evidence_builder.py"
+        ]
+      }
+    },
+    {
+      "id": "GOLD_010",
+      "status": "CERTIFIED",
+      "component": "evidence_builder",
+      "source_test": "tests/test_evidence_builder.py",
+      "provenance": {
+        "pull_request": 2,
+        "repository": "ohbeopseok-ops/joylab-agent-os",
+        "evidence_refs": [
+          "tests/test_evidence_builder.py"
+        ]
+      }
+    },
+    {
+      "id": "GOLD_011",
+      "status": "CERTIFIED",
+      "component": "evidence_builder",
+      "source_test": "tests/test_evidence_builder.py",
+      "provenance": {
+        "pull_request": 2,
+        "repository": "ohbeopseok-ops/joylab-agent-os",
+        "evidence_refs": [
+          "tests/test_evidence_builder.py"
+        ]
+      }
+    },
+    {
+      "id": "GOLD_012",
+      "status": "CERTIFIED",
+      "component": "evidence_builder",
+      "source_test": "tests/test_evidence_builder.py",
+      "provenance": {
+        "pull_request": 2,
+        "repository": "ohbeopseok-ops/joylab-agent-os",
+        "evidence_refs": [
+          "tests/test_evidence_builder.py"
+        ]
+      }
+    },
+    {
+      "id": "GOLD_013",
+      "status": "CERTIFIED",
+      "component": "evidence_builder",
+      "source_test": "tests/test_evidence_builder.py",
+      "provenance": {
+        "pull_request": 2,
+        "repository": "ohbeopseok-ops/joylab-agent-os",
+        "evidence_refs": [
+          "tests/test_evidence_builder.py"
+        ]
+      }
+    },
+    {
+      "id": "GOLD_014",
+      "status": "CERTIFIED",
+      "component": "snapshot_integrity",
+      "source_test": "tests/test_snapshot_integrity.py",
+      "provenance": {
+        "pull_request": 3,
+        "repository": "ohbeopseok-ops/joylab-agent-os",
+        "evidence_refs": [
+          "tests/test_snapshot_integrity.py"
+        ]
+      }
+    },
+    {
+      "id": "GOLD_015",
+      "status": "CERTIFIED",
+      "component": "snapshot_integrity",
+      "source_test": "tests/test_snapshot_integrity.py",
+      "provenance": {
+        "pull_request": 3,
+        "repository": "ohbeopseok-ops/joylab-agent-os",
+        "evidence_refs": [
+          "tests/test_snapshot_integrity.py"
+        ]
+      }
+    },
+    {
+      "id": "GOLD_016",
+      "status": "CERTIFIED",
+      "component": "snapshot_integrity",
+      "source_test": "tests/test_snapshot_integrity.py",
+      "provenance": {
+        "pull_request": 3,
+        "repository": "ohbeopseok-ops/joylab-agent-os",
+        "evidence_refs": [
+          "tests/test_snapshot_integrity.py"
+        ]
+      }
+    },
+    {
+      "id": "GOLD_017",
+      "status": "CERTIFIED",
+      "component": "memory_router",
+      "source_test": "tests/test_memory_router.py",
+      "provenance": {
+        "pull_request": 3,
+        "repository": "ohbeopseok-ops/joylab-agent-os",
+        "evidence_refs": [
+          "tests/test_memory_router.py"
+        ]
+      }
+    },
+    {
+      "id": "GOLD_018",
+      "status": "CERTIFIED",
+      "component": "memory_router",
+      "source_test": "tests/test_memory_router.py",
+      "provenance": {
+        "pull_request": 3,
+        "repository": "ohbeopseok-ops/joylab-agent-os",
+        "evidence_refs": [
+          "tests/test_memory_router.py"
+        ]
+      }
+    },
+    {
+      "id": "GOLD_019",
+      "status": "CERTIFIED",
+      "component": "memory_router",
+      "source_test": "tests/test_memory_router.py",
+      "provenance": {
+        "pull_request": 3,
+        "repository": "ohbeopseok-ops/joylab-agent-os",
+        "evidence_refs": [
+          "tests/test_memory_router.py"
+        ]
+      }
+    },
+    {
+      "id": "GOLD_020",
+      "status": "CERTIFIED",
+      "component": "memory_router",
+      "source_test": "tests/test_memory_router.py",
+      "provenance": {
+        "pull_request": 3,
+        "repository": "ohbeopseok-ops/joylab-agent-os",
+        "evidence_refs": [
+          "tests/test_memory_router.py"
+        ]
+      }
+    },
+    {
+      "id": "GOLD_021",
+      "status": "CERTIFIED",
+      "component": "memory_router",
+      "source_test": "tests/test_memory_router.py",
+      "provenance": {
+        "pull_request": 3,
+        "repository": "ohbeopseok-ops/joylab-agent-os",
+        "evidence_refs": [
+          "tests/test_memory_router.py"
+        ]
+      }
+    },
+    {
+      "id": "GOLD_022",
+      "status": "CERTIFIED",
+      "component": "core8_e2e",
+      "source_test": "tests/test_core8_e2e.py",
+      "provenance": {
+        "pull_request": 4,
+        "repository": "ohbeopseok-ops/joylab-agent-os",
+        "evidence_refs": [
+          "tests/test_core8_e2e.py"
+        ]
+      }
+    },
+    {
+      "id": "GOLD_023",
+      "status": "CERTIFIED",
+      "component": "core8_e2e",
+      "source_test": "tests/test_core8_e2e.py",
+      "provenance": {
+        "pull_request": 4,
+        "repository": "ohbeopseok-ops/joylab-agent-os",
+        "evidence_refs": [
+          "tests/test_core8_e2e.py"
+        ]
+      }
+    },
+    {
+      "id": "GOLD_024",
+      "status": "CERTIFIED",
+      "component": "core8_e2e",
+      "source_test": "tests/test_core8_e2e.py",
+      "provenance": {
+        "pull_request": 4,
+        "repository": "ohbeopseok-ops/joylab-agent-os",
+        "evidence_refs": [
+          "tests/test_core8_e2e.py"
+        ]
+      }
+    },
+    {
+      "id": "GOLD_025",
+      "status": "CERTIFIED",
+      "component": "skill_curator",
+      "source_test": "tests/test_skill_curator.py",
+      "provenance": {
+        "pull_request": 5,
+        "repository": "ohbeopseok-ops/joylab-agent-os",
+        "evidence_refs": [
+          "tests/test_skill_curator.py"
+        ]
+      }
+    },
+    {
+      "id": "GOLD_026",
+      "status": "CERTIFIED",
+      "component": "skill_curator",
+      "source_test": "tests/test_skill_curator.py",
+      "provenance": {
+        "pull_request": 5,
+        "repository": "ohbeopseok-ops/joylab-agent-os",
+        "evidence_refs": [
+          "tests/test_skill_curator.py"
+        ]
+      }
+    },
+    {
+      "id": "GOLD_027",
+      "status": "CERTIFIED",
+      "component": "skill_curator",
+      "source_test": "tests/test_skill_curator.py",
+      "provenance": {
+        "pull_request": 5,
+        "repository": "ohbeopseok-ops/joylab-agent-os",
+        "evidence_refs": [
+          "tests/test_skill_curator.py"
+        ]
+      }
+    },
+    {
+      "id": "GOLD_028",
+      "status": "CERTIFIED",
+      "component": "skill_curator",
+      "source_test": "tests/test_skill_curator.py",
+      "provenance": {
+        "pull_request": 5,
+        "repository": "ohbeopseok-ops/joylab-agent-os",
+        "evidence_refs": [
+          "tests/test_skill_curator.py"
+        ]
+      }
+    },
+    {
+      "id": "GOLD_029",
+      "status": "CERTIFIED",
+      "component": "skill_curator",
+      "source_test": "tests/test_skill_curator.py",
+      "provenance": {
+        "pull_request": 5,
+        "repository": "ohbeopseok-ops/joylab-agent-os",
+        "evidence_refs": [
+          "tests/test_skill_curator.py"
+        ]
+      }
+    },
+    {
+      "id": "GOLD_030",
+      "status": "CERTIFIED",
+      "component": "governance_audit",
+      "source_test": "tests/test_candidate_audit.py",
+      "provenance": {
+        "pull_request": 6,
+        "repository": "ohbeopseok-ops/joylab-agent-os",
+        "evidence_refs": [
+          "tests/test_candidate_audit.py"
+        ]
+      }
+    },
+    {
+      "id": "GOLD_031",
+      "status": "CERTIFIED",
+      "component": "governance_audit",
+      "source_test": "tests/test_candidate_audit.py",
+      "provenance": {
+        "pull_request": 6,
+        "repository": "ohbeopseok-ops/joylab-agent-os",
+        "evidence_refs": [
+          "tests/test_candidate_audit.py"
+        ]
+      }
+    },
+    {
+      "id": "GOLD_032",
+      "status": "CERTIFIED",
+      "component": "governance_audit",
+      "source_test": "tests/test_candidate_audit.py",
+      "provenance": {
+        "pull_request": 6,
+        "repository": "ohbeopseok-ops/joylab-agent-os",
+        "evidence_refs": [
+          "tests/test_candidate_audit.py"
+        ]
+      }
+    },
+    {
+      "id": "GOLD_033",
+      "status": "CERTIFIED",
+      "component": "governance_audit",
+      "source_test": "tests/test_candidate_audit.py",
+      "provenance": {
+        "pull_request": 6,
+        "repository": "ohbeopseok-ops/joylab-agent-os",
+        "evidence_refs": [
+          "tests/test_candidate_audit.py"
+        ]
+      }
+    },
+    {
+      "id": "GOLD_034",
+      "status": "CERTIFIED",
+      "component": "governance_audit",
+      "source_test": "tests/test_candidate_audit.py",
+      "provenance": {
+        "pull_request": 6,
+        "repository": "ohbeopseok-ops/joylab-agent-os",
+        "evidence_refs": [
+          "tests/test_candidate_audit.py"
+        ]
+      }
+    },
+    {
+      "id": "GOLD_035",
+      "status": "CERTIFIED",
+      "component": "evidence_graph",
+      "source_test": "tests/test_evidence_graph.py",
+      "provenance": {
+        "pull_request": 7,
+        "repository": "ohbeopseok-ops/joylab-agent-os",
+        "evidence_refs": [
+          "tests/test_evidence_graph.py"
+        ]
+      }
+    },
+    {
+      "id": "GOLD_036",
+      "status": "CERTIFIED",
+      "component": "evidence_graph",
+      "source_test": "tests/test_evidence_graph.py",
+      "provenance": {
+        "pull_request": 7,
+        "repository": "ohbeopseok-ops/joylab-agent-os",
+        "evidence_refs": [
+          "tests/test_evidence_graph.py"
+        ]
+      }
+    },
+    {
+      "id": "GOLD_037",
+      "status": "CERTIFIED",
+      "component": "evidence_graph",
+      "source_test": "tests/test_evidence_graph.py",
+      "provenance": {
+        "pull_request": 7,
+        "repository": "ohbeopseok-ops/joylab-agent-os",
+        "evidence_refs": [
+          "tests/test_evidence_graph.py"
+        ]
+      }
+    },
+    {
+      "id": "GOLD_038",
+      "status": "CERTIFIED",
+      "component": "evidence_graph",
+      "source_test": "tests/test_evidence_graph.py",
+      "provenance": {
+        "pull_request": 7,
+        "repository": "ohbeopseok-ops/joylab-agent-os",
+        "evidence_refs": [
+          "tests/test_evidence_graph.py"
+        ]
+      }
+    },
+    {
+      "id": "GOLD_039",
+      "status": "CERTIFIED",
+      "component": "evidence_graph",
+      "source_test": "tests/test_evidence_graph.py",
+      "provenance": {
+        "pull_request": 7,
+        "repository": "ohbeopseok-ops/joylab-agent-os",
+        "evidence_refs": [
+          "tests/test_evidence_graph.py"
+        ]
+      }
+    },
+    {
+      "id": "GOLD_040",
+      "status": "CERTIFIED",
+      "component": "evidence_graph",
+      "source_test": "tests/test_evidence_graph.py",
+      "provenance": {
+        "pull_request": 7,
+        "repository": "ohbeopseok-ops/joylab-agent-os",
+        "evidence_refs": [
+          "tests/test_evidence_graph.py"
+        ]
+      }
+    },
+    {
+      "id": "GOLD_041",
+      "status": "CERTIFIED",
+      "component": "graph_integrity",
+      "source_test": "tests/test_graph_integrity.py",
+      "provenance": {
+        "pull_request": 8,
+        "repository": "ohbeopseok-ops/joylab-agent-os",
+        "evidence_refs": [
+          "tests/test_graph_integrity.py"
+        ]
+      }
+    },
+    {
+      "id": "GOLD_042",
+      "status": "CERTIFIED",
+      "component": "graph_integrity",
+      "source_test": "tests/test_graph_integrity.py",
+      "provenance": {
+        "pull_request": 8,
+        "repository": "ohbeopseok-ops/joylab-agent-os",
+        "evidence_refs": [
+          "tests/test_graph_integrity.py"
+        ]
+      }
+    },
+    {
+      "id": "GOLD_043",
+      "status": "CERTIFIED",
+      "component": "graph_integrity",
+      "source_test": "tests/test_graph_integrity.py",
+      "provenance": {
+        "pull_request": 8,
+        "repository": "ohbeopseok-ops/joylab-agent-os",
+        "evidence_refs": [
+          "tests/test_graph_integrity.py"
+        ]
+      }
+    },
+    {
+      "id": "GOLD_044",
+      "status": "CERTIFIED",
+      "component": "graph_integrity",
+      "source_test": "tests/test_graph_integrity.py",
+      "provenance": {
+        "pull_request": 8,
+        "repository": "ohbeopseok-ops/joylab-agent-os",
+        "evidence_refs": [
+          "tests/test_graph_integrity.py"
+        ]
+      }
+    },
+    {
+      "id": "GOLD_045",
+      "status": "CERTIFIED",
+      "component": "investment_adapters",
+      "source_test": "tests/test_investment_adapters.py",
+      "provenance": {
+        "pull_request": 9,
+        "repository": "ohbeopseok-ops/joylab-agent-os",
+        "evidence_refs": [
+          "tests/test_investment_adapters.py"
+        ]
+      }
+    },
+    {
+      "id": "GOLD_046",
+      "status": "CERTIFIED",
+      "component": "investment_adapters",
+      "source_test": "tests/test_investment_adapters.py",
+      "provenance": {
+        "pull_request": 9,
+        "repository": "ohbeopseok-ops/joylab-agent-os",
+        "evidence_refs": [
+          "tests/test_investment_adapters.py"
+        ]
+      }
+    },
+    {
+      "id": "GOLD_047",
+      "status": "CERTIFIED",
+      "component": "investment_adapters",
+      "source_test": "tests/test_investment_adapters.py",
+      "provenance": {
+        "pull_request": 9,
+        "repository": "ohbeopseok-ops/joylab-agent-os",
+        "evidence_refs": [
+          "tests/test_investment_adapters.py"
+        ]
+      }
+    },
+    {
+      "id": "GOLD_048",
+      "status": "CERTIFIED",
+      "component": "investment_adapters",
+      "source_test": "tests/test_investment_adapters.py",
+      "provenance": {
+        "pull_request": 9,
+        "repository": "ohbeopseok-ops/joylab-agent-os",
+        "evidence_refs": [
+          "tests/test_investment_adapters.py"
+        ]
+      }
+    },
+    {
+      "id": "GOLD_049",
+      "status": "CERTIFIED",
+      "component": "investment_adapters",
+      "source_test": "tests/test_investment_adapters.py",
+      "provenance": {
+        "pull_request": 9,
+        "repository": "ohbeopseok-ops/joylab-agent-os",
+        "evidence_refs": [
+          "tests/test_investment_adapters.py"
+        ]
+      }
+    },
+    {
+      "id": "GOLD_050",
+      "status": "CERTIFIED",
+      "component": "investment_adapters",
+      "source_test": "tests/test_investment_adapters.py",
+      "provenance": {
+        "pull_request": 9,
+        "repository": "ohbeopseok-ops/joylab-agent-os",
+        "evidence_refs": [
+          "tests/test_investment_adapters.py"
+        ]
+      }
+    },
+    {
+      "id": "GOLD_051",
+      "status": "CERTIFIED",
+      "component": "investment_adapters",
+      "source_test": "tests/test_investment_adapters.py",
+      "provenance": {
+        "pull_request": 9,
+        "repository": "ohbeopseok-ops/joylab-agent-os",
+        "evidence_refs": [
+          "tests/test_investment_adapters.py"
+        ]
+      }
+    },
+    {
+      "id": "GOLD_052",
+      "status": "CERTIFIED",
+      "component": "investment_adapters",
+      "source_test": "tests/test_investment_adapters.py",
+      "provenance": {
+        "pull_request": 9,
+        "repository": "ohbeopseok-ops/joylab-agent-os",
+        "evidence_refs": [
+          "tests/test_investment_adapters.py"
+        ]
+      }
+    },
+    {
+      "id": "GOLD_053",
+      "status": "CERTIFIED",
+      "component": "adapter_registry",
+      "source_test": "tests/test_adapter_registry.py",
+      "provenance": {
+        "pull_request": 11,
+        "repository": "ohbeopseok-ops/joylab-agent-os",
+        "evidence_refs": [
+          "tests/test_adapter_registry.py"
+        ]
+      }
+    },
+    {
+      "id": "GOLD_054",
+      "status": "CERTIFIED",
+      "component": "adapter_registry",
+      "source_test": "tests/test_adapter_registry.py",
+      "provenance": {
+        "pull_request": 11,
+        "repository": "ohbeopseok-ops/joylab-agent-os",
+        "evidence_refs": [
+          "tests/test_adapter_registry.py"
+        ]
+      }
+    },
+    {
+      "id": "GOLD_055",
+      "status": "CERTIFIED",
+      "component": "adapter_registry",
+      "source_test": "tests/test_adapter_registry.py",
+      "provenance": {
+        "pull_request": 11,
+        "repository": "ohbeopseok-ops/joylab-agent-os",
+        "evidence_refs": [
+          "tests/test_adapter_registry.py"
+        ]
+      }
+    },
+    {
+      "id": "GOLD_056",
+      "status": "CERTIFIED",
+      "component": "adapter_registry",
+      "source_test": "tests/test_adapter_registry.py",
+      "provenance": {
+        "pull_request": 11,
+        "repository": "ohbeopseok-ops/joylab-agent-os",
+        "evidence_refs": [
+          "tests/test_adapter_registry.py"
+        ]
+      }
+    },
+    {
+      "id": "GOLD_057",
+      "status": "CERTIFIED",
+      "component": "adapter_registry",
+      "source_test": "tests/test_adapter_registry.py",
+      "provenance": {
+        "pull_request": 11,
+        "repository": "ohbeopseok-ops/joylab-agent-os",
+        "evidence_refs": [
+          "tests/test_adapter_registry.py"
+        ]
+      }
+    },
+    {
+      "id": "GOLD_058",
+      "status": "CERTIFIED",
+      "component": "adapter_registry",
+      "source_test": "tests/test_adapter_registry.py",
+      "provenance": {
+        "pull_request": 11,
+        "repository": "ohbeopseok-ops/joylab-agent-os",
+        "evidence_refs": [
+          "tests/test_adapter_registry.py"
+        ]
+      }
+    },
+    {
+      "id": "GOLD_059",
+      "status": "CERTIFIED",
+      "component": "adapter_registry",
+      "source_test": "tests/test_adapter_registry.py",
+      "provenance": {
+        "pull_request": 11,
+        "repository": "ohbeopseok-ops/joylab-agent-os",
+        "evidence_refs": [
+          "tests/test_adapter_registry.py"
+        ]
+      }
+    }
+  ]
+}
