@@ -1,76 +1,58 @@
-# SPEC — JoyLab Agent OS V0.4.2 EvidenceGraph
+# SPEC — JoyLab Agent OS V0.4.3 EvidenceGraph Integrity
 
 ## Status
 
-**IMPLEMENTATION CANDIDATE: PR #7**
+**IMPLEMENTATION CANDIDATE: PR #8**
 
 ## 1. Purpose
 
-Make the entire learning and certification lineage queryable.
+Seal a complete provenance graph so lineage changes become detectable.
 
 ```text
-Core8 Decision
-  -> Experience
-  -> Evidence Snapshot (EVS)
-  -> Skill Candidate
-  -> Approval Audit
-  -> Certified Skill
+EvidenceGraph
+  -> deterministic nodes/edges
+  -> canonical JSON
+  -> SHA-256
+  -> EVG-{first 20 hex chars}
+  -> EvidenceGraphSnapshotArtifact
 ```
 
-The graph must answer:
-- where did this certified skill come from?
-- which decision/experience generated its evidence?
-- which EVS supports it?
-- which candidate version was reviewed?
-- who approved it?
-- is any provenance node missing or orphaned?
+## 2. Artifact contract
 
-## 2. Node types
+The graph snapshot contains:
+- schema_version
+- graph_snapshot_id
+- sha256
+- nodes
+- edges
 
-- DECISION
-- EXPERIENCE
-- EVIDENCE_SNAPSHOT
-- SKILL_CANDIDATE
-- APPROVAL_AUDIT
-- CERTIFIED_SKILL
+Snapshot ID format:
+`EVG-[0-9a-f]{20}`
 
-## 3. Edge types
+## 3. Determinism
 
-- PRODUCED
-- SEALED_AS
-- SUPPORTS
-- PROPOSES
-- CERTIFIED_AS
-- APPROVED_BY
-- DERIVED_FROM
-- VALIDATED_BY
+Node ordering is by node_id.
+Edge ordering is by source_id, target_id, edge_type.
 
-All edges require both endpoints to exist.
-Self-edges and exact duplicate edges are blocked.
+Equivalent graphs must produce identical:
+- canonical JSON
+- SHA-256
+- graph snapshot ID
 
-## 4. Provenance contract
+## 4. Tamper detection
 
-A strict certified-skill provenance check can require:
-- DECISION
-- EXPERIENCE
-- EVIDENCE_SNAPSHOT
-- SKILL_CANDIDATE
-- APPROVAL_AUDIT
+Any change to:
+- node ID/type/label
+- source/target/edge type
+- sha256
+- graph snapshot ID
 
-Missing required node types make provenance incomplete.
+must invalidate verification.
 
-## 5. Diagnostics
+## 5. Definition of Done
 
-EvidenceGraph provides:
-- lineage path lookup
-- orphan node detection
-- provenance completeness check
-- deterministic edge listing
-
-## 6. Definition of Done
-
-- GOLD_001~034 remain green
-- GOLD_035~040 pass
+- GOLD_001~040 remain green
+- GOLD_041~044 pass
 - Python 3.11/3.12/3.13 CI green
-- full Core8 Decision -> Certified Skill path is queryable
-- missing approval audit is detectable
+- graph snapshot JSON Schema committed
+- node/edge/hash tampering detected

@@ -69,6 +69,9 @@ class EvidenceGraph:
         except KeyError as exc:
             raise ValueError("NODE_NOT_FOUND") from exc
 
+    def nodes(self) -> tuple[GraphNode, ...]:
+        return tuple(self._nodes[node_id] for node_id in sorted(self._nodes))
+
     def edges(self) -> tuple[GraphEdge, ...]:
         return tuple(sorted(
             self._edges,
