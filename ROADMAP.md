@@ -7,18 +7,20 @@
 - Gold Cases
 - lifecycle hard gates
 
-## V0.2 — Evidence Builder 🚧
+## V0.2 — Evidence Builder ✅
 - aggregate metrics from execution logs
 - evidence snapshots
 - CertificationEvidence conversion
 - evidence lineage via source experience IDs
+- deterministic snapshot hash / immutable snapshot ID
+- JSON Schema
 
-## V0.3 — Memory Router
+## V0.3 — Memory Router 🚧
 - Working / Operational / Evidence memory tiers
 - provider abstraction
 - timeout isolation
 - context sanitation
-- write policy
+- governed write policy
 
 ## V0.4 — Skill Evolution
 - reflection
