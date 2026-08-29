@@ -10,6 +10,10 @@ from .certification_gate import CertificationGate
 from .v05_certification_gate import (
     V05CertificationGate, V05CertificationInputs, V05CertificationResult,
 )
+from .runtime_state import (
+    RuntimeState, RuntimeStateEnvelope, RuntimeStateStore,
+    seal_runtime_state, verify_runtime_state,
+)
 from .memory_router import MemoryRouter
 from .memory_write_policy import MemoryWritePolicy
 from .adapters.core8 import Core8Adapter, Core8Decision, Core8E2EResult
