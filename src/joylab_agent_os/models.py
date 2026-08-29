@@ -18,6 +18,12 @@ class SkillState(str, Enum):
     DEPRECATED = "DEPRECATED"
 
 
+class MemoryTier(str, Enum):
+    WORKING = "WORKING"
+    OPERATIONAL = "OPERATIONAL"
+    EVIDENCE = "EVIDENCE"
+
+
 @dataclass(frozen=True)
 class SkillRecord:
     skill_id: str
@@ -52,6 +58,31 @@ class EvidenceSnapshot:
     regression_pass: bool
     hard_gate_violations: int
     source_experience_ids: tuple[str, ...]
+
+
+@dataclass(frozen=True)
+class EvidenceSnapshotArtifact:
+    schema_version: str
+    snapshot_id: str
+    sha256: str
+    snapshot: EvidenceSnapshot
+
+
+@dataclass(frozen=True)
+class MemoryWriteProposal:
+    tier: MemoryTier
+    key: str
+    value: str
+    source_ref: str = ""
+    immutable: bool = False
+    user_approved: bool = False
+    certified_source: bool = False
+
+
+@dataclass(frozen=True)
+class MemoryWriteDecision:
+    approved: bool
+    reason: str
 
 
 @dataclass(frozen=True)
