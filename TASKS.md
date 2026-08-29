@@ -17,5 +17,5 @@
 
 ## Gold
 - [x] GOLD_071~076 coded as CANDIDATE
-- [ ] promote only after GREEN CI
-- [ ] final CI requires GOLD_001~076 CERTIFIED
+- [x] promote only after GREEN CI
+- [x] final CI requires GOLD_001~076 CERTIFIED
