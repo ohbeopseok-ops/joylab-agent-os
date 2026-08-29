@@ -43,11 +43,14 @@ class ScheduledIngestionRunner:
         self.adapters = adapters
         self.runtime_id = runtime_id
 
-    def _state(self) -> RuntimeState:
+    def current_state(self) -> RuntimeState:
         try:
             return self.state_store.recover()
         except FileNotFoundError:
             return RuntimeState(runtime_id=self.runtime_id, sequence=0)
+
+    def _state(self) -> RuntimeState:
+        return self.current_state()
 
     @staticmethod
     def _validate(spec: ScheduleSpec, run_key: str, now_epoch: int) -> None:
