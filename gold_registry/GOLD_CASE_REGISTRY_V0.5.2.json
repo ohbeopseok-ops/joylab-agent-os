@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
-  "registry_version": "V0.6.4-CANDIDATE",
-  "generated_from": "V0.6.3 merged baseline + PR #19 candidate tests GOLD_103~112",
+  "registry_version": "V0.6.4",
+  "generated_from": "PR #19 initial CI GREEN; GOLD_001~112 certified",
   "allowed_statuses": [
     "CERTIFIED",
     "CANDIDATE",
@@ -1336,7 +1336,7 @@
     },
     {
       "id": "GOLD_103",
-      "status": "CANDIDATE",
+      "status": "CERTIFIED",
       "component": "crash_reconciliation",
       "source_test": "tests/test_crash_reconciliation.py",
       "provenance": {
@@ -1349,7 +1349,7 @@
     },
     {
       "id": "GOLD_104",
-      "status": "CANDIDATE",
+      "status": "CERTIFIED",
       "component": "crash_reconciliation",
       "source_test": "tests/test_crash_reconciliation.py",
       "provenance": {
@@ -1362,7 +1362,7 @@
     },
     {
       "id": "GOLD_105",
-      "status": "CANDIDATE",
+      "status": "CERTIFIED",
       "component": "crash_reconciliation",
       "source_test": "tests/test_crash_reconciliation.py",
       "provenance": {
@@ -1375,7 +1375,7 @@
     },
     {
       "id": "GOLD_106",
-      "status": "CANDIDATE",
+      "status": "CERTIFIED",
       "component": "crash_reconciliation",
       "source_test": "tests/test_crash_reconciliation.py",
       "provenance": {
@@ -1388,7 +1388,7 @@
     },
     {
       "id": "GOLD_107",
-      "status": "CANDIDATE",
+      "status": "CERTIFIED",
       "component": "crash_reconciliation",
       "source_test": "tests/test_crash_reconciliation.py",
       "provenance": {
@@ -1401,7 +1401,7 @@
     },
     {
       "id": "GOLD_108",
-      "status": "CANDIDATE",
+      "status": "CERTIFIED",
       "component": "crash_reconciliation",
       "source_test": "tests/test_crash_reconciliation.py",
       "provenance": {
@@ -1414,7 +1414,7 @@
     },
     {
       "id": "GOLD_109",
-      "status": "CANDIDATE",
+      "status": "CERTIFIED",
       "component": "crash_reconciliation",
       "source_test": "tests/test_crash_reconciliation.py",
       "provenance": {
@@ -1427,7 +1427,7 @@
     },
     {
       "id": "GOLD_110",
-      "status": "CANDIDATE",
+      "status": "CERTIFIED",
       "component": "crash_reconciliation",
       "source_test": "tests/test_crash_reconciliation.py",
       "provenance": {
@@ -1440,7 +1440,7 @@
     },
     {
       "id": "GOLD_111",
-      "status": "CANDIDATE",
+      "status": "CERTIFIED",
       "component": "crash_reconciliation",
       "source_test": "tests/test_crash_reconciliation.py",
       "provenance": {
@@ -1453,7 +1453,7 @@
     },
     {
       "id": "GOLD_112",
-      "status": "CANDIDATE",
+      "status": "CERTIFIED",
       "component": "crash_reconciliation",
       "source_test": "tests/test_crash_reconciliation.py",
       "provenance": {
