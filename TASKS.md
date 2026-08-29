@@ -16,9 +16,11 @@
 - [x] EVS sealing on success only
 - [x] duplicate/no-due no-evidence semantics
 - [x] adapter failure no-state/no-evidence semantics
+- [x] duplicate experience ID cannot advance runtime state
+- [x] duplicate schedule does not re-call adapter
 - [x] public current_state API
 
 ## Gold
-- [x] GOLD_084~090 coded as CANDIDATE
+- [x] GOLD_084~092 coded as CANDIDATE
 - [ ] promote only after GREEN CI
-- [ ] final CI requires GOLD_001~090 CERTIFIED
+- [ ] final CI requires GOLD_001~092 CERTIFIED
