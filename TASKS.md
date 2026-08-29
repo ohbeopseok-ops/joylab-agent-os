@@ -1,6 +1,6 @@
-# TASKS — PR #13 V0.5 Certification Gate
+# TASKS — V0.5.3 FROZEN CERTIFIED BASELINE
 
-## P0
+## PR #13 Certification
 - [x] V05CertificationInputs
 - [x] V05CertificationResult
 - [x] V05CertificationGate
@@ -15,8 +15,19 @@
 - [x] GitHub Actions certification-gate job
 
 ## Governance
-- [x] GOLD_060~064 promoted after PR #12 merge
-- [x] GOLD_065~070 initially CANDIDATE
-- [ ] promote GOLD_065~070 only after first CI GREEN
-- [ ] final CI requires GOLD_001~070 CERTIFIED
-- [ ] squash merge only after final CI GREEN
+- [x] GOLD_060~064 certified after PR #12
+- [x] GOLD_065~070 entered as CANDIDATE
+- [x] initial failure blocked merge
+- [x] regression fixed
+- [x] GOLD_065~070 promoted only after GREEN evidence
+- [x] final CI requires GOLD_001~070 CERTIFIED
+- [x] final Python 3.11/3.12/3.13 GREEN
+- [x] final Certification Gate GREEN
+- [x] PR #13 squash merged
+- [x] release/v0.5.3-frozen anchored to frozen SHA
+
+## Freeze
+- [x] frozen SHA recorded
+- [x] release notes recorded
+- [x] CHANGELOG recorded
+- [x] V0.6 boundary declared
