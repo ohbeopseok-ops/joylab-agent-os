@@ -22,6 +22,14 @@ from .skill_candidate import SkillCandidate, SkillCandidateGenerator
 from .skill_curator import CuratorRecommendation, SkillCurator
 from .candidate_diff import CandidateDiffArtifact, CandidateDiffBuilder
 from .approval_audit import ApprovalAuditLog, ApprovalAuditRecord, ApprovalDecision
+from .evidence_graph import (
+    EvidenceGraph,
+    GraphNode,
+    GraphNodeType,
+    GraphEdge,
+    GraphEdgeType,
+    build_core8_lineage,
+)
 
 __all__ = [
     "SkillState",
@@ -53,4 +61,10 @@ __all__ = [
     "ApprovalAuditLog",
     "ApprovalAuditRecord",
     "ApprovalDecision",
+    "EvidenceGraph",
+    "GraphNode",
+    "GraphNodeType",
+    "GraphEdge",
+    "GraphEdgeType",
+    "build_core8_lineage",
 ]

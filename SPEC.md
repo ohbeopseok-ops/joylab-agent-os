@@ -1,75 +1,76 @@
-# SPEC — JoyLab Agent OS V0.4.1 Governance Audit
+# SPEC — JoyLab Agent OS V0.4.2 EvidenceGraph
 
 ## Status
 
-**IMPLEMENTATION CANDIDATE: PR #6**
+**IMPLEMENTATION CANDIDATE: PR #7**
 
 ## 1. Purpose
 
-Make every proposed skill change reviewable and every approval/rejection attributable.
+Make the entire learning and certification lineage queryable.
 
 ```text
-CERTIFIED Skill
-  -> SkillCandidate
-  -> CandidateDiffArtifact
-  -> Evidence refs
-  -> Approval / Rejection
-  -> ApprovalAuditRecord
+Core8 Decision
+  -> Experience
+  -> Evidence Snapshot (EVS)
+  -> Skill Candidate
+  -> Approval Audit
+  -> Certified Skill
 ```
 
-The audit layer answers:
-- who decided?
-- what changed?
-- why was it approved/rejected?
-- which evidence supported the decision?
-- which candidate diff was reviewed?
+The graph must answer:
+- where did this certified skill come from?
+- which decision/experience generated its evidence?
+- which EVS supports it?
+- which candidate version was reviewed?
+- who approved it?
+- is any provenance node missing or orphaned?
 
-## 2. Candidate Diff
+## 2. Node types
 
-CandidateDiffBuilder produces:
-- diff_id
-- candidate_id
-- skill_id
-- base_version
-- proposed_version
-- structured changes
-- SHA-256
+- DECISION
+- EXPERIENCE
+- EVIDENCE_SNAPSHOT
+- SKILL_CANDIDATE
+- APPROVAL_AUDIT
+- CERTIFIED_SKILL
 
-The same base + candidate produces the same diff artifact.
+## 3. Edge types
 
-## 3. Approval Audit
+- PRODUCED
+- SEALED_AS
+- SUPPORTS
+- PROPOSES
+- CERTIFIED_AS
+- APPROVED_BY
+- DERIVED_FROM
+- VALIDATED_BY
 
-ApprovalAuditRecord contains:
-- audit_id
-- candidate_id
-- skill_id
-- base_version
-- proposed_version
-- actor
-- decision
-- reason
-- evidence_refs
-- diff_id
-- created_at
+All edges require both endpoints to exist.
+Self-edges and exact duplicate edges are blocked.
 
-Approval requires at least one evidence reference.
-Rejection may be recorded without evidence refs when the reason itself explains the block.
+## 4. Provenance contract
 
-## 4. Immutability
+A strict certified-skill provenance check can require:
+- DECISION
+- EXPERIENCE
+- EVIDENCE_SNAPSHOT
+- SKILL_CANDIDATE
+- APPROVAL_AUDIT
 
-ApprovalAuditLog is append-only.
-Duplicate audit IDs are rejected.
+Missing required node types make provenance incomplete.
 
-Audit records do not mutate:
-- candidate
-- base skill
-- Evidence Snapshot
-- Certification Result
+## 5. Diagnostics
 
-## 5. Definition of Done
+EvidenceGraph provides:
+- lineage path lookup
+- orphan node detection
+- provenance completeness check
+- deterministic edge listing
 
-- GOLD_001~029 remain green
-- GOLD_030~034 pass
+## 6. Definition of Done
+
+- GOLD_001~034 remain green
+- GOLD_035~040 pass
 - Python 3.11/3.12/3.13 CI green
-- approval without evidence is impossible
-- duplicate audit entry is blocked
+- full Core8 Decision -> Certified Skill path is queryable
+- missing approval audit is detectable
