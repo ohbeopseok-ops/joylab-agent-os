@@ -36,16 +36,18 @@
 - pinned-skill protection
 - CERTIFIED base immutability
 
-## V0.4.1 — Governance Audit 🚧
+## V0.4.1 — Governance Audit ✅
 - deterministic Candidate Diff
 - approval/rejection audit log
 - actor / reason / evidence refs
 - append-only approval history
 
-## V0.4.2 — Evidence Graph
-- typed lineage edges
+## V0.4.2 — Evidence Graph 🚧
+- typed lineage nodes and edges
 - Core8 Decision -> Experience -> EVS -> Candidate -> Certified Skill
-- orphan / provenance diagnostics
+- approval audit linkage
+- orphan diagnostics
+- strict provenance completeness checks
 
 ## V0.5 — Investment Plugin expansion
 - AI Power
