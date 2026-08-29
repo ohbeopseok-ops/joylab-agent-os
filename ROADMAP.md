@@ -9,18 +9,14 @@
 ## V0.4.2 — Evidence Graph ✅
 ## V0.4.3 — EvidenceGraph Integrity ✅
 ## V0.5 — Investment Adapter Expansion ✅
+## V0.5.1 — Adapter & Plugin Registry ✅
 
-## V0.5.1 — Adapter & Plugin Registry 🚧
-- automatic adapter routing
-- Core8 / AI Power / NVDA / EPS / Master Ranking registry
-- domain plugin registry
-- enabled-domain filtering
-- wrong-type / duplicate / unknown-domain hard blocks
-
-## V0.5.2 — Gold Registry
-- JSON registry
-- CERTIFIED / CANDIDATE / INVALID
-- provenance references
+## V0.5.2 — Gold Registry 🚧
+- JSON Gold Case registry
+- CERTIFIED / CANDIDATE / INVALID lifecycle states
+- per-case provenance
+- contiguous ID validation
+- duplicate/status hard blocks
 
 ## V0.5.3 — Unified Certification Gate
 - Python CI
