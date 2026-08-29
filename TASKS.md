@@ -24,5 +24,5 @@
 
 ## Gold
 - [x] GOLD_093~102 coded as CANDIDATE
-- [ ] promote only after GREEN CI
-- [ ] final CI requires GOLD_001~102 CERTIFIED
+- [x] promote only after GREEN CI
+- [x] final CI requires GOLD_001~102 CERTIFIED
