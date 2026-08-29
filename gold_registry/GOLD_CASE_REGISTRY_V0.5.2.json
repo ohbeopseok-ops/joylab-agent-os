@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
-  "registry_version": "V0.6.0-CANDIDATE",
-  "generated_from": "V0.5.3 frozen baseline + PR #15 candidate tests",
+  "registry_version": "V0.6.0",
+  "generated_from": "PR #15 initial CI GREEN; GOLD_001~076 certified",
   "allowed_statuses": [
     "CERTIFIED",
     "CANDIDATE",
@@ -920,7 +920,7 @@
     },
     {
       "id": "GOLD_071",
-      "status": "CANDIDATE",
+      "status": "CERTIFIED",
       "component": "runtime_state",
       "source_test": "tests/test_runtime_state.py",
       "provenance": {
@@ -933,7 +933,7 @@
     },
     {
       "id": "GOLD_072",
-      "status": "CANDIDATE",
+      "status": "CERTIFIED",
       "component": "runtime_state",
       "source_test": "tests/test_runtime_state.py",
       "provenance": {
@@ -946,7 +946,7 @@
     },
     {
       "id": "GOLD_073",
-      "status": "CANDIDATE",
+      "status": "CERTIFIED",
       "component": "runtime_state",
       "source_test": "tests/test_runtime_state.py",
       "provenance": {
@@ -959,7 +959,7 @@
     },
     {
       "id": "GOLD_074",
-      "status": "CANDIDATE",
+      "status": "CERTIFIED",
       "component": "runtime_state",
       "source_test": "tests/test_runtime_state.py",
       "provenance": {
@@ -972,7 +972,7 @@
     },
     {
       "id": "GOLD_075",
-      "status": "CANDIDATE",
+      "status": "CERTIFIED",
       "component": "runtime_state",
       "source_test": "tests/test_runtime_state.py",
       "provenance": {
@@ -985,7 +985,7 @@
     },
     {
       "id": "GOLD_076",
-      "status": "CANDIDATE",
+      "status": "CERTIFIED",
       "component": "runtime_state",
       "source_test": "tests/test_runtime_state.py",
       "provenance": {
