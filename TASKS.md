@@ -1,25 +1,24 @@
-# TASKS — PR #16 Scheduled Ingestion V0.6.1
+# TASKS — PR #17 Runtime Orchestration V0.6.2
 
-## V0.6 runtime foundation
-- [x] persistent RuntimeState
-- [x] restart recovery
-- [x] GOLD_071~076 CERTIFIED
-- [x] PR #15 merged
+## Runtime foundation
+- [x] V0.6 Persistent Runtime State merged
+- [x] V0.6.1 Scheduled Ingestion merged
+- [x] GOLD_001~083 CERTIFIED
 
-## P0 — Scheduled ingestion
-- [x] ScheduleSpec
-- [x] deterministic now_epoch input
-- [x] interval due check
-- [x] checkpoint-aware execution
-- [x] duplicate-run protection across restart
-- [x] adapter routing
-- [x] adapter failure leaves state unchanged
-- [x] disabled schedule no-op
-- [x] not-due no-op
-- [x] successful run increments runtime sequence
-- [x] bounded run history
+## P0 — Runtime Orchestrator
+- [x] DomainPluginRegistry gate
+- [x] disabled plugin block
+- [x] plugin/schedule domain consistency check
+- [x] ScheduledIngestionRunner integration
+- [x] AdapterRegistry integration
+- [x] ExperienceLogger append on success only
+- [x] EvidenceBuilder integration
+- [x] EVS sealing on success only
+- [x] duplicate/no-due no-evidence semantics
+- [x] adapter failure no-state/no-evidence semantics
+- [x] public current_state API
 
 ## Gold
-- [x] GOLD_077~083 coded as CANDIDATE
-- [x] promote only after GREEN CI
-- [x] final CI requires GOLD_001~083 CERTIFIED
+- [x] GOLD_084~090 coded as CANDIDATE
+- [ ] promote only after GREEN CI
+- [ ] final CI requires GOLD_001~090 CERTIFIED
