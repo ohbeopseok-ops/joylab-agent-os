@@ -1,36 +1,36 @@
-# SPEC — JoyLab Agent OS V0.5.1 Adapter & Plugin Registry
+# SPEC — JoyLab Agent OS V0.5.2 Gold Registry
 
 ## Status
-IMPLEMENTATION CANDIDATE — PR #11
+IMPLEMENTATION CANDIDATE — PR #12
 
 ## Purpose
 
-Route supported investment-domain signals through one governed registry.
+Promote Gold Cases from pytest naming convention to governed data.
 
-```text
-domain + signal
-    -> AdapterRegistry
-    -> exact signal-type check
-    -> domain adapter
-    -> ExperienceRecord
-```
+Each registry entry contains:
+- id
+- status
+- component
+- source_test
+- provenance.repository
+- provenance.pull_request
+- provenance.evidence_refs
 
-Supported default domains:
-- core8
-- ai_power
-- nvda_event
-- eps_revision
-- master_ranking
+Allowed states:
+- CERTIFIED
+- CANDIDATE
+- INVALID
 
-DomainPluginRegistry separately tracks which plugins are enabled.
+Current merged baseline registers GOLD_001 through GOLD_059 as CERTIFIED.
 
-## Hard rules
-- unknown domain => block
-- wrong signal class => block
-- duplicate adapter registration => block
-- registry does not weaken adapter-level investment hard rules
+## Invariants
+- duplicate IDs are blocked
+- unknown statuses are blocked
+- current baseline IDs are contiguous
+- every case requires provenance
+- registry status does not rewrite historical test code
 
 ## DoD
-- GOLD_001~052 remain green
-- GOLD_053~059 pass
+- GOLD_001~059 remain green
+- GOLD_060~064 pass
 - Python 3.11/3.12/3.13 green
