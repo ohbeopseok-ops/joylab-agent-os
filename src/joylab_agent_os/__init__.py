@@ -14,6 +14,9 @@ from .runtime_state import (
     RuntimeState, RuntimeStateEnvelope, RuntimeStateStore,
     seal_runtime_state, verify_runtime_state,
 )
+from .scheduled_ingestion import (
+    ScheduleSpec, ScheduledIngestionResult, ScheduledIngestionRunner,
+)
 from .memory_router import MemoryRouter
 from .memory_write_policy import MemoryWritePolicy
 from .adapters.core8 import Core8Adapter, Core8Decision, Core8E2EResult
