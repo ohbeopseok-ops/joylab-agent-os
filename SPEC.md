@@ -1,59 +1,70 @@
-# SPEC — JoyLab Agent OS V0.6.2 Runtime Orchestration
+# SPEC — JoyLab Agent OS V0.6.3 Persistent Experience / Evidence Store
 
 ## Status
-IMPLEMENTATION CANDIDATE — PR #17
+IMPLEMENTATION CANDIDATE — PR #18
 
 ## Purpose
 
-Provide one governed runtime path for enabled domain plugins.
+Preserve Experience → Evidence lineage across process restarts without mutating the V0.5.3 frozen trust contracts.
 
 ```text
-DomainPluginRegistry
-      ↓ enabled + domain match
-ScheduleSpec
-      ↓ due + unique run
-AdapterRegistry
-      ↓
 ExperienceRecord
-      ↓
-RuntimeState checkpoint
-      ↓
-ExperienceLogger
-      ↓
+   ↓
+PersistentLineageJournal
+   ↓
 EvidenceBuilder
-      ↓
-EvidenceSnapshot
-      ↓
-EVS seal
+   ↓
+EvidenceSnapshot / EVS
+   ↓
+same append-only hash chain
 ```
 
-## Hard rules
+## Journal contract
 
-- disabled plugin => no execution, no persisted state, no evidence
-- plugin/schedule domain mismatch => block
-- duplicate => no new experience or evidence
-- not due => no new experience or evidence
-- adapter failure => no persisted state, no experience, no evidence
-- duplicate experience ID => block before runtime commit
-- duplicate/not-due schedule => adapter is not called
-- only EXECUTED results may enter evidence lineage
+Each JSONL entry contains:
+- schema_version
+- monotonic sequence
+- kind: EXPERIENCE or EVIDENCE
+- prev_hash
+- entry_hash
+- payload
 
-## Evidence semantics
+Each entry hash covers its sequence, kind, previous hash, and payload.
 
-A successful orchestration builds evidence from the append-only experience set for the exact skill_id + skill_version and seals the resulting snapshot as an EVS artifact.
+## Recovery hard blocks
 
-## Frozen boundary
+Recovery fails on:
+- truncated final line
+- malformed JSON
+- unsupported schema version
+- sequence gap/reordering
+- previous-hash mismatch
+- entry-hash mismatch
+- invalid Experience payload
+- EVS integrity failure
 
-V0.5.3 contracts for Gold, EVS, EVG, approval audit, and certification semantics are not rewritten.
+## Persistent views
+
+`PersistentExperienceStore` provides the ExperienceLogger-compatible operations required by RuntimeOrchestrator.
+
+`PersistentEvidenceStore` persists verified EVS artifacts and can return the latest artifact per exact skill_id + skill_version.
+
+## Restart E2E
+
+After restart, a second successful orchestration uses all recovered Experiences for the exact skill/version, extends source_experience_ids, seals a new EVS, and persists it into the same lineage journal.
+
+## Concurrency boundary
+
+V0.6.3 is a single-writer journal contract. Multi-process locking/transactions are intentionally deferred.
 
 ## Governance
 
-GOLD_084~092 start as CANDIDATE and may become CERTIFIED only after GREEN CI evidence.
+GOLD_093~102 start as CANDIDATE and may become CERTIFIED only after GREEN CI evidence.
 
 ## DoD
 
-- GOLD_001~083 remain green
-- GOLD_084~092 pass
+- GOLD_001~092 remain green
+- GOLD_093~102 pass
 - Python 3.11/3.12/3.13 green
 - Certification Gate green
-- final registry GOLD_001~092 CERTIFIED
+- final registry GOLD_001~102 CERTIFIED
