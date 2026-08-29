@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://joylab.local/schemas/lineage_journal_entry.schema.json",
+  "title": "JoyLab Persistent Lineage Journal Entry",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "sequence", "kind", "prev_hash", "entry_hash", "payload"],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "sequence": {"type": "integer", "minimum": 1},
+    "kind": {"enum": ["EXPERIENCE", "EVIDENCE"]},
+    "prev_hash": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "entry_hash": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "payload": {"type": "object"}
+  }
+}

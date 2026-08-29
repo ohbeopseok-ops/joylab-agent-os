@@ -50,3 +50,13 @@ Release anchor:
 - governed skill evolution
 - multi-domain provenance
 - multi-interface runtime
+
+## V0.6.3 — Persistent Experience / Evidence Store ✅
+- append-only hash-chained JSONL lineage journal
+- persistent Experience recovery
+- persistent EVS recovery
+- shared Experience → Evidence ordering
+- restart-safe duplicate protection
+- truncated/corrupt/tampered/deleted-entry detection
+- RuntimeOrchestrator persistent evidence sink
+- restart E2E lineage continuation
