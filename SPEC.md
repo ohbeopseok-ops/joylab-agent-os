@@ -1,36 +1,52 @@
-# SPEC — JoyLab Agent OS V0.5.2 Gold Registry
+# SPEC — JoyLab Agent OS V0.5.3 Unified Certification Gate
 
 ## Status
-IMPLEMENTATION CANDIDATE — PR #12
+IMPLEMENTATION CANDIDATE — PR #13
 
 ## Purpose
 
-Promote Gold Cases from pytest naming convention to governed data.
+Produce one deterministic release decision from the full trust stack.
 
-Each registry entry contains:
-- id
-- status
-- component
-- source_test
-- provenance.repository
-- provenance.pull_request
-- provenance.evidence_refs
+```text
+Python CI
+ + Regression
+ + Gold Registry
+ + JSON Schema
+ + EVS Integrity
+ + EVG Integrity
+ + Approval Audit
+        ↓
+V05CertificationGate
+        ↓
+PASS / FAIL + reason codes
+```
 
-Allowed states:
-- CERTIFIED
-- CANDIDATE
-- INVALID
+## Checks
 
-Current merged baseline registers GOLD_001 through GOLD_059 as CERTIFIED.
+- python_ci
+- regression
+- gold_contiguous
+- gold_provenance
+- gold_no_invalid
+- gold_certified_minimum
+- schema
+- evs
+- evg
+- audit
 
-## Invariants
-- duplicate IDs are blocked
-- unknown statuses are blocked
-- current baseline IDs are contiguous
-- every case requires provenance
-- registry status does not rewrite historical test code
+Any failed check blocks release.
+
+## Governance bootstrap
+
+PR #13 Gold Cases GOLD_065~070 enter the registry as CANDIDATE.
+They may become CERTIFIED only after the first complete CI run is GREEN.
+The final PR run then requires all GOLD_001~070 to be CERTIFIED.
 
 ## DoD
-- GOLD_001~059 remain green
-- GOLD_060~064 pass
-- Python 3.11/3.12/3.13 green
+
+- existing GOLD_001~064 remain green
+- GOLD_065~070 pass
+- candidates promoted only after evidence
+- final Python 3.11/3.12/3.13 green
+- final certification-gate job green
+- required certified Gold minimum = 70
