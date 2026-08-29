@@ -41,6 +41,20 @@ class ExperienceRecord:
 
 
 @dataclass(frozen=True)
+class EvidenceSnapshot:
+    skill_id: str
+    skill_version: str
+    samples: int
+    successful_samples: int
+    gold_cases: int
+    confidence: float
+    oos_pass: bool
+    regression_pass: bool
+    hard_gate_violations: int
+    source_experience_ids: tuple[str, ...]
+
+
+@dataclass(frozen=True)
 class CertificationEvidence:
     samples: int
     gold_cases: int
