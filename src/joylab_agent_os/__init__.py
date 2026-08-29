@@ -7,6 +7,9 @@ from .skill_registry import SkillRegistry
 from .experience_logger import ExperienceLogger
 from .evidence_builder import EvidenceBuilder
 from .certification_gate import CertificationGate
+from .v05_certification_gate import (
+    V05CertificationGate, V05CertificationInputs, V05CertificationResult,
+)
 from .memory_router import MemoryRouter
 from .memory_write_policy import MemoryWritePolicy
 from .adapters.core8 import Core8Adapter, Core8Decision, Core8E2EResult

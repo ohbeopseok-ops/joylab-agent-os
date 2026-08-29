@@ -1,16 +1,22 @@
-# TASKS — PR #12 Gold Registry V0.5.2
+# TASKS — PR #13 V0.5 Certification Gate
 
 ## P0
-- [x] JSON registry
-- [x] GOLD_001 ~ GOLD_059 registered
-- [x] CERTIFIED / CANDIDATE / INVALID statuses
-- [x] component ownership
-- [x] source test path
-- [x] PR provenance
-- [x] evidence references
-- [x] duplicate ID block
-- [x] invalid status block
-- [x] contiguous numbering validation
+- [x] V05CertificationInputs
+- [x] V05CertificationResult
+- [x] V05CertificationGate
+- [x] CLI runner
+- [x] Python CI dependency
+- [x] regression gate
+- [x] Gold Registry gate
+- [x] Schema gate
+- [x] EVS integrity gate
+- [x] EVG integrity gate
+- [x] Approval Audit gate
+- [x] GitHub Actions certification-gate job
 
-## Gold
-- [x] GOLD_060 ~ GOLD_064
+## Governance
+- [x] GOLD_060~064 promoted after PR #12 merge
+- [x] GOLD_065~070 initially CANDIDATE
+- [ ] promote GOLD_065~070 only after first CI GREEN
+- [ ] final CI requires GOLD_001~070 CERTIFIED
+- [ ] squash merge only after final CI GREEN

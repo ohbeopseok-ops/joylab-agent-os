@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
-  "registry_version": "V0.5.2",
-  "generated_from": "merged main through PR #11",
+  "registry_version": "V0.5.3",
+  "generated_from": "PR #13 first CI GREEN; GOLD_001~070 certified",
   "allowed_statuses": [
     "CERTIFIED",
     "CANDIDATE",
@@ -772,6 +772,149 @@
         "repository": "ohbeopseok-ops/joylab-agent-os",
         "evidence_refs": [
           "tests/test_adapter_registry.py"
+        ]
+      }
+    },
+    {
+      "id": "GOLD_060",
+      "status": "CERTIFIED",
+      "component": "gold_registry",
+      "source_test": "tests/test_gold_registry.py",
+      "provenance": {
+        "repository": "ohbeopseok-ops/joylab-agent-os",
+        "pull_request": 12,
+        "evidence_refs": [
+          "tests/test_gold_registry.py"
+        ]
+      }
+    },
+    {
+      "id": "GOLD_061",
+      "status": "CERTIFIED",
+      "component": "gold_registry",
+      "source_test": "tests/test_gold_registry.py",
+      "provenance": {
+        "repository": "ohbeopseok-ops/joylab-agent-os",
+        "pull_request": 12,
+        "evidence_refs": [
+          "tests/test_gold_registry.py"
+        ]
+      }
+    },
+    {
+      "id": "GOLD_062",
+      "status": "CERTIFIED",
+      "component": "gold_registry",
+      "source_test": "tests/test_gold_registry.py",
+      "provenance": {
+        "repository": "ohbeopseok-ops/joylab-agent-os",
+        "pull_request": 12,
+        "evidence_refs": [
+          "tests/test_gold_registry.py"
+        ]
+      }
+    },
+    {
+      "id": "GOLD_063",
+      "status": "CERTIFIED",
+      "component": "gold_registry",
+      "source_test": "tests/test_gold_registry.py",
+      "provenance": {
+        "repository": "ohbeopseok-ops/joylab-agent-os",
+        "pull_request": 12,
+        "evidence_refs": [
+          "tests/test_gold_registry.py"
+        ]
+      }
+    },
+    {
+      "id": "GOLD_064",
+      "status": "CERTIFIED",
+      "component": "gold_registry",
+      "source_test": "tests/test_gold_registry.py",
+      "provenance": {
+        "repository": "ohbeopseok-ops/joylab-agent-os",
+        "pull_request": 12,
+        "evidence_refs": [
+          "tests/test_gold_registry.py"
+        ]
+      }
+    },
+    {
+      "id": "GOLD_065",
+      "status": "CERTIFIED",
+      "component": "v05_certification_gate",
+      "source_test": "tests/test_v05_certification_gate.py",
+      "provenance": {
+        "repository": "ohbeopseok-ops/joylab-agent-os",
+        "pull_request": 13,
+        "evidence_refs": [
+          "tests/test_v05_certification_gate.py"
+        ]
+      }
+    },
+    {
+      "id": "GOLD_066",
+      "status": "CERTIFIED",
+      "component": "v05_certification_gate",
+      "source_test": "tests/test_v05_certification_gate.py",
+      "provenance": {
+        "repository": "ohbeopseok-ops/joylab-agent-os",
+        "pull_request": 13,
+        "evidence_refs": [
+          "tests/test_v05_certification_gate.py"
+        ]
+      }
+    },
+    {
+      "id": "GOLD_067",
+      "status": "CERTIFIED",
+      "component": "v05_certification_gate",
+      "source_test": "tests/test_v05_certification_gate.py",
+      "provenance": {
+        "repository": "ohbeopseok-ops/joylab-agent-os",
+        "pull_request": 13,
+        "evidence_refs": [
+          "tests/test_v05_certification_gate.py"
+        ]
+      }
+    },
+    {
+      "id": "GOLD_068",
+      "status": "CERTIFIED",
+      "component": "v05_certification_gate",
+      "source_test": "tests/test_v05_certification_gate.py",
+      "provenance": {
+        "repository": "ohbeopseok-ops/joylab-agent-os",
+        "pull_request": 13,
+        "evidence_refs": [
+          "tests/test_v05_certification_gate.py"
+        ]
+      }
+    },
+    {
+      "id": "GOLD_069",
+      "status": "CERTIFIED",
+      "component": "v05_certification_gate",
+      "source_test": "tests/test_v05_certification_gate.py",
+      "provenance": {
+        "repository": "ohbeopseok-ops/joylab-agent-os",
+        "pull_request": 13,
+        "evidence_refs": [
+          "tests/test_v05_certification_gate.py"
+        ]
+      }
+    },
+    {
+      "id": "GOLD_070",
+      "status": "CERTIFIED",
+      "component": "v05_certification_gate",
+      "source_test": "tests/test_v05_certification_gate.py",
+      "provenance": {
+        "repository": "ohbeopseok-ops/joylab-agent-os",
+        "pull_request": 13,
+        "evidence_refs": [
+          "tests/test_v05_certification_gate.py"
         ]
       }
     }
