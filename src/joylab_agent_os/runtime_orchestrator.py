@@ -60,6 +60,20 @@ class RuntimeOrchestrator:
         if plugin.domain.strip().lower() != schedule.domain.strip().lower():
             raise ValueError("PLUGIN_SCHEDULE_DOMAIN_MISMATCH")
 
+        schedule_status, schedule_state = self.ingestion.check_status(
+            spec=schedule,
+            run_key=run_key,
+            now_epoch=now_epoch,
+        )
+        if schedule_status != "READY":
+            return OrchestrationResult(
+                status=schedule_status,
+                experience=None,
+                evidence=None,
+                evidence_artifact=None,
+                runtime_sequence=schedule_state.sequence,
+            )
+
         prepared = self.ingestion.adapters.route(schedule.domain, signal)
         if self.experiences.contains_id(prepared.experience_id):
             raise ValueError("EXPERIENCE_ID_ALREADY_EXISTS")
