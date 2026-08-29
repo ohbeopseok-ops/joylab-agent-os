@@ -39,6 +39,19 @@ def runtime_state_payload(state: RuntimeState) -> dict[str, Any]:
     }
 
 
+def runtime_state_from_payload(payload: dict[str, Any]) -> RuntimeState:
+    try:
+        return RuntimeState(
+            runtime_id=str(payload["runtime_id"]),
+            sequence=int(payload["sequence"]),
+            active_plugins=tuple(str(x) for x in payload.get("active_plugins", ())),
+            checkpoints={str(k): str(v) for k, v in payload.get("checkpoints", {}).items()},
+            metadata=dict(payload.get("metadata", {})),
+        )
+    except (KeyError, TypeError, ValueError) as exc:
+        raise ValueError("RUNTIME_STATE_INVALID_SHAPE") from exc
+
+
 def canonical_state_json(payload: dict[str, Any]) -> str:
     return json.dumps(
         payload,
@@ -125,13 +138,7 @@ class RuntimeStateStore:
 
         try:
             state_payload = payload["state"]
-            state = RuntimeState(
-                runtime_id=state_payload["runtime_id"],
-                sequence=int(state_payload["sequence"]),
-                active_plugins=tuple(state_payload.get("active_plugins", ())),
-                checkpoints=dict(state_payload.get("checkpoints", {})),
-                metadata=dict(state_payload.get("metadata", {})),
-            )
+            state = runtime_state_from_payload(state_payload)
             envelope = RuntimeStateEnvelope(
                 schema_version=payload["schema_version"],
                 state_id=payload["state_id"],
