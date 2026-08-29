@@ -1,72 +1,84 @@
-# SPEC — JoyLab Agent OS V0.2
+# SPEC — JoyLab Agent OS V0.3
 
 ## Status
 
-**IMPLEMENTATION CANDIDATE: V0.2 / PR #2**
+**IMPLEMENTATION CANDIDATE: V0.3 / PR #3**
 
-## 1. Governed evidence pipeline
+## 1. Evidence integrity
+
+Evidence snapshots are sealed as immutable artifacts.
 
 ```text
-ExperienceRecord[]
-  -> EvidenceBuilder.build()
-  -> EvidenceSnapshot
-  -> EvidenceBuilder.to_certification_evidence()
-  -> CertificationEvidence
-  -> CertificationGate.evaluate()
+EvidenceSnapshot
+  -> canonical JSON
+  -> SHA-256
+  -> EVS-{first 20 hex chars}
+  -> EvidenceSnapshotArtifact
 ```
 
-## 2. Evidence Snapshot contract
+The artifact contains:
+- schema_version
+- snapshot_id
+- sha256
+- snapshot payload
 
-The snapshot shall be scoped to one exact `skill_id + skill_version`.
+Any payload/hash/id mismatch must fail verification.
 
-Fields:
-- skill_id
-- skill_version
-- samples
-- successful_samples
-- gold_cases
-- confidence
-- oos_pass
-- regression_pass
-- hard_gate_violations
-- source_experience_ids
+## 2. Memory architecture
 
-## 3. Deterministic aggregation rules
-
-- `samples`: selected experience count
-- `successful_samples`: selected records where success is true
-- `gold_cases`: records tagged `gold_case`
-- `confidence`: arithmetic mean of available `metrics["confidence"]`; 0.0 when absent
-- `oos_pass`: at least one `oos_pass` and no `oos_fail`
-- `regression_pass`: at least one `regression_pass` and no `regression_fail`
-- `hard_gate_violations`: records tagged `hard_gate_violation`
-- evidence from other skill ids or versions must be excluded
-
-## 4. Certification policy
-
-V0.1 gate policy remains unchanged:
-
-```yaml
-min_samples: 20
-min_gold_cases: 10
-min_confidence: 80
-require_oos_pass: true
-require_regression_pass: true
-max_hard_gate_violations: 0
+```text
+MemoryRouter
+  ├─ WORKING provider
+  ├─ OPERATIONAL provider
+  └─ EVIDENCE provider
 ```
 
-## 5. Safety invariants
+Only one provider may be registered per tier in V0.3.
 
-- source Experience records remain append-only
-- EvidenceBuilder does not mutate Experience records
-- fail evidence overrides pass markers for OOS and regression
-- snapshot preserves source Experience IDs for lineage
-- CertificationGate remains deterministic
+## 3. Recall contract
 
-## 6. Definition of Done — PR #2
+- provider recall is timeout-bounded
+- one provider failure must not block other tiers
+- memory context fence tags are stripped before injection
+- empty/failed providers are skipped
 
-PR #2 is complete only when:
-- all V0.1 tests continue to pass
-- EvidenceBuilder Gold Cases pass
+## 4. Write governance
+
+### WORKING
+May be auto-approved because it is ephemeral.
+
+### OPERATIONAL
+Requires at least one:
+- explicit user approval
+- certified source
+
+### EVIDENCE
+Requires both:
+- immutable = true
+- non-empty source_ref
+
+A denied write must not reach the provider.
+
+## 5. Hermes-derived patterns
+
+Adopted:
+- provider routing
+- timeout/failure isolation
+- context sanitation
+- bounded provider surface
+
+Modified:
+- Hermes sync/write behavior -> policy-gated write
+- external provider model -> one provider per memory tier
+
+Rejected:
+- uncontrolled operational memory mutation
+
+## 6. Definition of Done — PR #3
+
+PR #3 is complete only when:
+- all V0.1/V0.2 tests remain green
+- snapshot tamper tests pass
+- memory failure/timeout isolation tests pass
+- write governance tests pass
 - Python 3.11 / 3.12 / 3.13 CI are green
-- no V0.1 certification rule regresses
