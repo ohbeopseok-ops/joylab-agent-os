@@ -19,7 +19,7 @@ def base(**overrides):
         regression_green=True,
         gold_registry_path=REGISTRY,
         schema_paths=SCHEMAS,
-        required_certified_gold=64,
+        required_certified_gold=70,
     )
     values.update(overrides)
     return V05CertificationInputs(**values)
