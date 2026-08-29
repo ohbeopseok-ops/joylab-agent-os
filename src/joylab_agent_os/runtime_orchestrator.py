@@ -48,7 +48,7 @@ class RuntimeOrchestrator:
         plugin = self.plugins.get(plugin_id)
 
         if not plugin.enabled:
-            state = self.ingestion._state()
+            state = self.ingestion.current_state()
             return OrchestrationResult(
                 status="PLUGIN_DISABLED",
                 experience=None,
