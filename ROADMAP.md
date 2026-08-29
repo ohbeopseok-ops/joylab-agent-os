@@ -8,20 +8,27 @@
 ## V0.4.1 — Governance Audit ✅
 ## V0.4.2 — Evidence Graph ✅
 ## V0.4.3 — EvidenceGraph Integrity ✅
+## V0.5 — Investment Adapter Expansion ✅
 
-## V0.5 — Investment Adapter Expansion 🚧
-- AI Power normalized adapter
-- NVDA Event normalized adapter
-- EPS Revision normalized adapter
-- Master Ranking normalized adapter
-- shared ExperienceRecord boundary
-- UNKNOWN preservation
-- domain hard-rule propagation
+## V0.5.1 — Adapter & Plugin Registry 🚧
+- automatic adapter routing
+- Core8 / AI Power / NVDA / EPS / Master Ranking registry
+- domain plugin registry
+- enabled-domain filtering
+- wrong-type / duplicate / unknown-domain hard blocks
 
-## V0.6 — Multi-domain persistence / scheduling
-- graph persistence
-- scheduled curator review
-- adapter registry
+## V0.5.2 — Gold Registry
+- JSON registry
+- CERTIFIED / CANDIDATE / INVALID
+- provenance references
+
+## V0.5.3 — Unified Certification Gate
+- Python CI
+- Gold registry
+- schema
+- EVS / EVG
+- audit
+- regression
 
 ## V1.0 — JoyLab Personal Agent OS
 - unified router
