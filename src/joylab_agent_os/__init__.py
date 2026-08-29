@@ -17,6 +17,7 @@ from .evidence_builder import EvidenceBuilder
 from .certification_gate import CertificationGate
 from .memory_router import MemoryRouter
 from .memory_write_policy import MemoryWritePolicy
+from .adapters.core8 import Core8Adapter, Core8Decision, Core8E2EResult
 
 __all__ = [
     "SkillState",
@@ -36,4 +37,7 @@ __all__ = [
     "CertificationGate",
     "MemoryRouter",
     "MemoryWritePolicy",
+    "Core8Adapter",
+    "Core8Decision",
+    "Core8E2EResult",
 ]
