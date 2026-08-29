@@ -1,62 +1,85 @@
-# SPEC — JoyLab Agent OS V0.3.1 Core8 E2E
+# SPEC — JoyLab Agent OS V0.4 Skill Evolution
 
 ## Status
 
-**IMPLEMENTATION CANDIDATE: PR #4**
+**IMPLEMENTATION CANDIDATE: PR #5**
 
-## 1. Purpose
+## 1. Principle
 
-Prove that a real investment-domain decision can traverse the governed runtime without bypassing evidence or certification rules.
+The system may propose improvements, but a CERTIFIED skill is never edited in place.
 
 ```text
-Core8 Decision
-  -> ExperienceRecord
-  -> ExperienceLogger
-  -> EvidenceBuilder
-  -> EvidenceSnapshot
-  -> EVS-ID / SHA-256
-  -> CertificationGate
-  -> Evidence Memory
+CERTIFIED v1.0.0
+   -> improvement proposal
+   -> SkillCandidate v1.0.1
+   -> register DISCOVERED
+   -> transition CANDIDATE
+   -> future evidence/testing/certification
 ```
 
-## 2. Core8 boundary contract
+The original CERTIFIED version remains unchanged.
 
-The adapter consumes a normalized `Core8Decision`:
-- decision_id
-- skill_id
-- skill_version
-- ticker
-- action
-- confidence
-- success
-- Gold/OOS/regression/hard-gate flags
+## 2. SkillCandidateGenerator
 
-It does not import or mutate Core8 internals.
+Inputs:
+- base SkillRecord
+- rationale
+- change summary
+- optional proposed version
 
-## 3. Governance
+Outputs:
+- deterministic candidate_id
+- base version
+- proposed version
+- rationale
+- change summary
 
-A single investment decision must NOT receive fake certification.
+Default version behavior is patch bump.
 
-With production defaults:
-- sample count 1 -> certification FAIL
-- evidence snapshot is still sealed
-- immutable evidence may still be persisted to EVIDENCE memory
+## 3. SkillCurator
 
-A frozen evidence batch may certify only when the existing CertificationPolicy passes.
+Inspired by Hermes Curator but restricted to governance-safe actions.
 
-## 4. Independence
+It may:
+- KEEP
+- REVIEW
+- PROPOSE_DEPRECATE
+- propose a new candidate version
+- submit that new candidate version
 
-Core8 source contracts were reviewed from:
-- `schemas/master_runtime_v0_1.schema.json`
-- `src/master_runtime_v0_1.py`
-- `GOLD_CASE_STANDARD_V0.1.md`
+It may not:
+- patch a CERTIFIED record in place
+- silently deprecate a CERTIFIED record
+- weaken certification rules
+- bypass candidate/testing gates
 
-JoyLab Agent OS keeps the repositories independent through an adapter boundary.
+## 4. Activity policy
 
-## 5. Definition of Done
+Default thresholds:
+- stale_after_days = 30
+- archive_after_days = 90
+- pinned skills bypass activity recommendations
 
-- existing GOLD_001~021 remain green
-- GOLD_022~024 pass
+At archive threshold the curator emits a recommendation only.
+
+## 5. Hermes mapping
+
+Adopted:
+- lifecycle maintenance concept
+- stale/archive thresholds
+- pinned protection
+- background-review-ready design
+
+Modified:
+- automatic patch -> versioned candidate proposal
+- automatic archive -> deprecation recommendation
+
+Rejected:
+- direct mutation of CERTIFIED skills
+
+## 6. Definition of Done
+
+- GOLD_001~024 remain green
+- GOLD_025~029 pass
 - Python 3.11/3.12/3.13 CI green
-- single-sample decision does not certify
-- hard-gate violations cannot certify
+- CERTIFIED base remains byte/record equivalent after candidate submission
