@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://joylab.local/schemas/evidence_snapshot.schema.json",
+  "title": "JoyLab Evidence Snapshot Artifact",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "snapshot_id", "sha256", "snapshot"],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "snapshot_id": {
+      "type": "string",
+      "pattern": "^EVS-[0-9a-f]{20}$"
+    },
+    "sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "snapshot": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "skill_id",
+        "skill_version",
+        "samples",
+        "successful_samples",
+        "gold_cases",
+        "confidence",
+        "oos_pass",
+        "regression_pass",
+        "hard_gate_violations",
+        "source_experience_ids"
+      ],
+      "properties": {
+        "skill_id": {"type": "string", "minLength": 1},
+        "skill_version": {"type": "string", "minLength": 1},
+        "samples": {"type": "integer", "minimum": 0},
+        "successful_samples": {"type": "integer", "minimum": 0},
+        "gold_cases": {"type": "integer", "minimum": 0},
+        "confidence": {"type": "number", "minimum": 0},
+        "oos_pass": {"type": "boolean"},
+        "regression_pass": {"type": "boolean"},
+        "hard_gate_violations": {"type": "integer", "minimum": 0},
+        "source_experience_ids": {
+          "type": "array",
+          "items": {"type": "string", "minLength": 1},
+          "uniqueItems": true
+        }
+      }
+    }
+  }
+}
