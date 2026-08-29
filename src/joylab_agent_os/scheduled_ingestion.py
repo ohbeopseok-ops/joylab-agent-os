@@ -96,6 +96,22 @@ class ScheduledIngestionRunner:
         now_epoch: int,
         signal: Any,
     ) -> ScheduledIngestionResult:
+        experience = self.adapters.route(spec.domain, signal)
+        return self.run_prepared(
+            spec=spec,
+            run_key=run_key,
+            now_epoch=now_epoch,
+            experience=experience,
+        )
+
+    def run_prepared(
+        self,
+        *,
+        spec: ScheduleSpec,
+        run_key: str,
+        now_epoch: int,
+        experience: ExperienceRecord,
+    ) -> ScheduledIngestionResult:
         self._validate(spec, run_key, now_epoch)
         state = self._state()
         history = self._history(state)
@@ -109,9 +125,6 @@ class ScheduledIngestionRunner:
 
         if not self.is_due(spec, state, now_epoch):
             return ScheduledIngestionResult("NOT_DUE", None, state)
-
-        # Route before mutating state. If the adapter fails, no checkpoint advances.
-        experience = self.adapters.route(spec.domain, signal)
 
         next_history = {k: list(v) for k, v in history.items()}
         schedule_runs = next_history.setdefault(spec.schedule_id, [])
