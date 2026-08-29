@@ -1,84 +1,62 @@
-# SPEC — JoyLab Agent OS V0.3
+# SPEC — JoyLab Agent OS V0.3.1 Core8 E2E
 
 ## Status
 
-**IMPLEMENTATION CANDIDATE: V0.3 / PR #3**
+**IMPLEMENTATION CANDIDATE: PR #4**
 
-## 1. Evidence integrity
+## 1. Purpose
 
-Evidence snapshots are sealed as immutable artifacts.
-
-```text
-EvidenceSnapshot
-  -> canonical JSON
-  -> SHA-256
-  -> EVS-{first 20 hex chars}
-  -> EvidenceSnapshotArtifact
-```
-
-The artifact contains:
-- schema_version
-- snapshot_id
-- sha256
-- snapshot payload
-
-Any payload/hash/id mismatch must fail verification.
-
-## 2. Memory architecture
+Prove that a real investment-domain decision can traverse the governed runtime without bypassing evidence or certification rules.
 
 ```text
-MemoryRouter
-  ├─ WORKING provider
-  ├─ OPERATIONAL provider
-  └─ EVIDENCE provider
+Core8 Decision
+  -> ExperienceRecord
+  -> ExperienceLogger
+  -> EvidenceBuilder
+  -> EvidenceSnapshot
+  -> EVS-ID / SHA-256
+  -> CertificationGate
+  -> Evidence Memory
 ```
 
-Only one provider may be registered per tier in V0.3.
+## 2. Core8 boundary contract
 
-## 3. Recall contract
+The adapter consumes a normalized `Core8Decision`:
+- decision_id
+- skill_id
+- skill_version
+- ticker
+- action
+- confidence
+- success
+- Gold/OOS/regression/hard-gate flags
 
-- provider recall is timeout-bounded
-- one provider failure must not block other tiers
-- memory context fence tags are stripped before injection
-- empty/failed providers are skipped
+It does not import or mutate Core8 internals.
 
-## 4. Write governance
+## 3. Governance
 
-### WORKING
-May be auto-approved because it is ephemeral.
+A single investment decision must NOT receive fake certification.
 
-### OPERATIONAL
-Requires at least one:
-- explicit user approval
-- certified source
+With production defaults:
+- sample count 1 -> certification FAIL
+- evidence snapshot is still sealed
+- immutable evidence may still be persisted to EVIDENCE memory
 
-### EVIDENCE
-Requires both:
-- immutable = true
-- non-empty source_ref
+A frozen evidence batch may certify only when the existing CertificationPolicy passes.
 
-A denied write must not reach the provider.
+## 4. Independence
 
-## 5. Hermes-derived patterns
+Core8 source contracts were reviewed from:
+- `schemas/master_runtime_v0_1.schema.json`
+- `src/master_runtime_v0_1.py`
+- `GOLD_CASE_STANDARD_V0.1.md`
 
-Adopted:
-- provider routing
-- timeout/failure isolation
-- context sanitation
-- bounded provider surface
+JoyLab Agent OS keeps the repositories independent through an adapter boundary.
 
-Modified:
-- Hermes sync/write behavior -> policy-gated write
-- external provider model -> one provider per memory tier
+## 5. Definition of Done
 
-Rejected:
-- uncontrolled operational memory mutation
-
-## 6. Definition of Done — PR #3
-
-PR #3 is complete only when:
-- all V0.1/V0.2 tests remain green
-- snapshot tamper tests pass
-- memory failure/timeout isolation tests pass
-- write governance tests pass
-- Python 3.11 / 3.12 / 3.13 CI are green
+- existing GOLD_001~021 remain green
+- GOLD_022~024 pass
+- Python 3.11/3.12/3.13 CI green
+- single-sample decision does not certify
+- hard-gate violations cannot certify
