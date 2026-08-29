@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://joylab.local/schemas/evidence_graph_snapshot.schema.json",
+  "title": "JoyLab Evidence Graph Snapshot Artifact",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "graph_snapshot_id", "sha256", "nodes", "edges"],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "graph_snapshot_id": {
+      "type": "string",
+      "pattern": "^EVG-[0-9a-f]{20}$"
+    },
+    "sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "nodes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["node_id", "node_type", "label"],
+        "properties": {
+          "node_id": {"type": "string", "minLength": 1},
+          "node_type": {"type": "string", "minLength": 1},
+          "label": {"type": "string"}
+        }
+      }
+    },
+    "edges": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["source_id", "target_id", "edge_type"],
+        "properties": {
+          "source_id": {"type": "string", "minLength": 1},
+          "target_id": {"type": "string", "minLength": 1},
+          "edge_type": {"type": "string", "minLength": 1}
+        }
+      }
+    }
+  }
+}
