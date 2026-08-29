@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
-  "registry_version": "V0.6.3-CANDIDATE",
-  "generated_from": "V0.6.2 merged baseline + PR #18 candidate tests GOLD_093~102",
+  "registry_version": "V0.6.3",
+  "generated_from": "PR #18 initial CI GREEN; GOLD_001~102 certified",
   "allowed_statuses": [
     "CERTIFIED",
     "CANDIDATE",
@@ -1206,7 +1206,7 @@
     },
     {
       "id": "GOLD_093",
-      "status": "CANDIDATE",
+      "status": "CERTIFIED",
       "component": "persistent_lineage",
       "source_test": "tests/test_persistent_lineage.py",
       "provenance": {
@@ -1219,7 +1219,7 @@
     },
     {
       "id": "GOLD_094",
-      "status": "CANDIDATE",
+      "status": "CERTIFIED",
       "component": "persistent_lineage",
       "source_test": "tests/test_persistent_lineage.py",
       "provenance": {
@@ -1232,7 +1232,7 @@
     },
     {
       "id": "GOLD_095",
-      "status": "CANDIDATE",
+      "status": "CERTIFIED",
       "component": "persistent_lineage",
       "source_test": "tests/test_persistent_lineage.py",
       "provenance": {
@@ -1245,7 +1245,7 @@
     },
     {
       "id": "GOLD_096",
-      "status": "CANDIDATE",
+      "status": "CERTIFIED",
       "component": "persistent_lineage",
       "source_test": "tests/test_persistent_lineage.py",
       "provenance": {
@@ -1258,7 +1258,7 @@
     },
     {
       "id": "GOLD_097",
-      "status": "CANDIDATE",
+      "status": "CERTIFIED",
       "component": "persistent_lineage",
       "source_test": "tests/test_persistent_lineage.py",
       "provenance": {
@@ -1271,7 +1271,7 @@
     },
     {
       "id": "GOLD_098",
-      "status": "CANDIDATE",
+      "status": "CERTIFIED",
       "component": "persistent_lineage",
       "source_test": "tests/test_persistent_lineage.py",
       "provenance": {
@@ -1284,7 +1284,7 @@
     },
     {
       "id": "GOLD_099",
-      "status": "CANDIDATE",
+      "status": "CERTIFIED",
       "component": "persistent_lineage",
       "source_test": "tests/test_persistent_lineage.py",
       "provenance": {
@@ -1297,7 +1297,7 @@
     },
     {
       "id": "GOLD_100",
-      "status": "CANDIDATE",
+      "status": "CERTIFIED",
       "component": "persistent_lineage",
       "source_test": "tests/test_persistent_lineage.py",
       "provenance": {
@@ -1310,7 +1310,7 @@
     },
     {
       "id": "GOLD_101",
-      "status": "CANDIDATE",
+      "status": "CERTIFIED",
       "component": "persistent_lineage",
       "source_test": "tests/test_persistent_lineage.py",
       "provenance": {
@@ -1323,7 +1323,7 @@
     },
     {
       "id": "GOLD_102",
-      "status": "CANDIDATE",
+      "status": "CERTIFIED",
       "component": "persistent_lineage",
       "source_test": "tests/test_persistent_lineage.py",
       "provenance": {
