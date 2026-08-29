@@ -42,12 +42,19 @@
 - actor / reason / evidence refs
 - append-only approval history
 
-## V0.4.2 — Evidence Graph 🚧
+## V0.4.2 — Evidence Graph ✅
 - typed lineage nodes and edges
 - Core8 Decision -> Experience -> EVS -> Candidate -> Certified Skill
 - approval audit linkage
 - orphan diagnostics
 - strict provenance completeness checks
+
+## V0.4.3 — EvidenceGraph Integrity 🚧
+- canonical graph JSON
+- SHA-256 graph digest
+- immutable EVG snapshot ID
+- graph JSON Schema
+- node/edge tamper detection
 
 ## V0.5 — Investment Plugin expansion
 - AI Power
