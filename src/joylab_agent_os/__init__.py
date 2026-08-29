@@ -18,6 +18,8 @@ from .certification_gate import CertificationGate
 from .memory_router import MemoryRouter
 from .memory_write_policy import MemoryWritePolicy
 from .adapters.core8 import Core8Adapter, Core8Decision, Core8E2EResult
+from .skill_candidate import SkillCandidate, SkillCandidateGenerator
+from .skill_curator import CuratorRecommendation, SkillCurator
 
 __all__ = [
     "SkillState",
@@ -40,4 +42,8 @@ __all__ = [
     "Core8Adapter",
     "Core8Decision",
     "Core8E2EResult",
+    "SkillCandidate",
+    "SkillCandidateGenerator",
+    "CuratorRecommendation",
+    "SkillCurator",
 ]
