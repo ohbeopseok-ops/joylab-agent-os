@@ -1,33 +1,37 @@
-# TASKS — PR #2 EvidenceBuilder V0.2
+# TASKS — PR #3 MemoryRouter V0.3
 
-## V0.1 Governed Core
-- [x] Skill Registry
-- [x] Experience Logger
-- [x] Certification Gate
-- [x] Gold Cases
-- [x] CI matrix
+## V0.2 integrity hardening
+- [x] Evidence Snapshot JSON Schema
+- [x] canonical JSON serialization
+- [x] SHA-256 content hash
+- [x] deterministic immutable snapshot ID
+- [x] tamper verification
+- [x] GOLD_014 ~ GOLD_016
 
-## P0 — Evidence Builder
-- [x] EvidenceSnapshot model
-- [x] filter evidence by skill id + version
-- [x] aggregate sample count
-- [x] aggregate Gold Case count
-- [x] aggregate confidence
-- [x] OOS pass/fail derivation
-- [x] regression pass/fail derivation
-- [x] hard-gate violation count
-- [x] snapshot -> CertificationEvidence conversion
+## P0 — Memory Router
+- [x] MemoryTier enum
+- [x] MemoryProvider protocol
+- [x] one provider per memory tier
+- [x] recall timeout isolation
+- [x] provider failure isolation
+- [x] context fence sanitation
+- [x] governed write dispatch
+
+## P0 — MemoryWritePolicy
+- [x] WORKING auto-approval
+- [x] OPERATIONAL requires user approval or certified source
+- [x] EVIDENCE requires immutable flag + source ref
+- [x] failed writes never mutate provider
 
 ## P0 — Gold Cases
-- [x] GOLD_008 valid snapshot certifies
-- [x] GOLD_009 other skills/versions excluded
-- [x] GOLD_010 OOS failure overrides pass
-- [x] GOLD_011 regression failure overrides pass
-- [x] GOLD_012 hard-gate violations counted
-- [x] GOLD_013 missing confidence defaults to zero
+- [x] GOLD_017 sanitized recall
+- [x] GOLD_018 failure isolation
+- [x] GOLD_019 timeout isolation
+- [x] GOLD_020 operational governance
+- [x] GOLD_021 immutable evidence write
 
-## P1 — Next
-- [ ] JSON persistence adapter
-- [ ] Evidence Snapshot serialization
-- [ ] schema versioning
-- [ ] Memory Router V0.3
+## Next
+- [ ] persistent provider adapter
+- [ ] async background sync
+- [ ] memory write audit log
+- [ ] Skill Curator V0.4
