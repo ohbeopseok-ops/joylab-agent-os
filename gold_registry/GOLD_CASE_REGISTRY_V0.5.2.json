@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
-  "registry_version": "V0.6.3",
-  "generated_from": "PR #18 initial CI GREEN; GOLD_001~102 certified",
+  "registry_version": "V0.6.4-CANDIDATE",
+  "generated_from": "V0.6.3 merged baseline + PR #19 candidate tests GOLD_103~112",
   "allowed_statuses": [
     "CERTIFIED",
     "CANDIDATE",
@@ -1331,6 +1331,136 @@
         "pull_request": 18,
         "evidence_refs": [
           "tests/test_persistent_lineage.py"
+        ]
+      }
+    },
+    {
+      "id": "GOLD_103",
+      "status": "CANDIDATE",
+      "component": "crash_reconciliation",
+      "source_test": "tests/test_crash_reconciliation.py",
+      "provenance": {
+        "repository": "ohbeopseok-ops/joylab-agent-os",
+        "pull_request": 19,
+        "evidence_refs": [
+          "tests/test_crash_reconciliation.py"
+        ]
+      }
+    },
+    {
+      "id": "GOLD_104",
+      "status": "CANDIDATE",
+      "component": "crash_reconciliation",
+      "source_test": "tests/test_crash_reconciliation.py",
+      "provenance": {
+        "repository": "ohbeopseok-ops/joylab-agent-os",
+        "pull_request": 19,
+        "evidence_refs": [
+          "tests/test_crash_reconciliation.py"
+        ]
+      }
+    },
+    {
+      "id": "GOLD_105",
+      "status": "CANDIDATE",
+      "component": "crash_reconciliation",
+      "source_test": "tests/test_crash_reconciliation.py",
+      "provenance": {
+        "repository": "ohbeopseok-ops/joylab-agent-os",
+        "pull_request": 19,
+        "evidence_refs": [
+          "tests/test_crash_reconciliation.py"
+        ]
+      }
+    },
+    {
+      "id": "GOLD_106",
+      "status": "CANDIDATE",
+      "component": "crash_reconciliation",
+      "source_test": "tests/test_crash_reconciliation.py",
+      "provenance": {
+        "repository": "ohbeopseok-ops/joylab-agent-os",
+        "pull_request": 19,
+        "evidence_refs": [
+          "tests/test_crash_reconciliation.py"
+        ]
+      }
+    },
+    {
+      "id": "GOLD_107",
+      "status": "CANDIDATE",
+      "component": "crash_reconciliation",
+      "source_test": "tests/test_crash_reconciliation.py",
+      "provenance": {
+        "repository": "ohbeopseok-ops/joylab-agent-os",
+        "pull_request": 19,
+        "evidence_refs": [
+          "tests/test_crash_reconciliation.py"
+        ]
+      }
+    },
+    {
+      "id": "GOLD_108",
+      "status": "CANDIDATE",
+      "component": "crash_reconciliation",
+      "source_test": "tests/test_crash_reconciliation.py",
+      "provenance": {
+        "repository": "ohbeopseok-ops/joylab-agent-os",
+        "pull_request": 19,
+        "evidence_refs": [
+          "tests/test_crash_reconciliation.py"
+        ]
+      }
+    },
+    {
+      "id": "GOLD_109",
+      "status": "CANDIDATE",
+      "component": "crash_reconciliation",
+      "source_test": "tests/test_crash_reconciliation.py",
+      "provenance": {
+        "repository": "ohbeopseok-ops/joylab-agent-os",
+        "pull_request": 19,
+        "evidence_refs": [
+          "tests/test_crash_reconciliation.py"
+        ]
+      }
+    },
+    {
+      "id": "GOLD_110",
+      "status": "CANDIDATE",
+      "component": "crash_reconciliation",
+      "source_test": "tests/test_crash_reconciliation.py",
+      "provenance": {
+        "repository": "ohbeopseok-ops/joylab-agent-os",
+        "pull_request": 19,
+        "evidence_refs": [
+          "tests/test_crash_reconciliation.py"
+        ]
+      }
+    },
+    {
+      "id": "GOLD_111",
+      "status": "CANDIDATE",
+      "component": "crash_reconciliation",
+      "source_test": "tests/test_crash_reconciliation.py",
+      "provenance": {
+        "repository": "ohbeopseok-ops/joylab-agent-os",
+        "pull_request": 19,
+        "evidence_refs": [
+          "tests/test_crash_reconciliation.py"
+        ]
+      }
+    },
+    {
+      "id": "GOLD_112",
+      "status": "CANDIDATE",
+      "component": "crash_reconciliation",
+      "source_test": "tests/test_crash_reconciliation.py",
+      "provenance": {
+        "repository": "ohbeopseok-ops/joylab-agent-os",
+        "pull_request": 19,
+        "evidence_refs": [
+          "tests/test_crash_reconciliation.py"
         ]
       }
     }
