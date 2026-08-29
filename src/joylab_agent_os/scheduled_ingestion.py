@@ -156,7 +156,7 @@ class ScheduledIngestionRunner:
             state=state,
         )
 
-    def _commit_prepared(
+    def prepare_next_state(
         self,
         *,
         spec: ScheduleSpec,
@@ -164,7 +164,7 @@ class ScheduledIngestionRunner:
         now_epoch: int,
         experience: ExperienceRecord,
         state: RuntimeState,
-    ) -> ScheduledIngestionResult:
+    ) -> RuntimeState:
         history = self._history(state)
         next_history = {k: list(v) for k, v in history.items()}
         schedule_runs = next_history.setdefault(spec.schedule_id, [])
@@ -183,12 +183,29 @@ class ScheduledIngestionRunner:
         metadata["schedule_last_success_epoch"] = next_last
 
         next_plugins = tuple(sorted(set(state.active_plugins) | {spec.domain.lower()}))
-        next_state = RuntimeState(
+        return RuntimeState(
             runtime_id=state.runtime_id,
             sequence=state.sequence + 1,
             active_plugins=next_plugins,
             checkpoints=checkpoints,
             metadata=metadata,
+        )
+
+    def _commit_prepared(
+        self,
+        *,
+        spec: ScheduleSpec,
+        run_key: str,
+        now_epoch: int,
+        experience: ExperienceRecord,
+        state: RuntimeState,
+    ) -> ScheduledIngestionResult:
+        next_state = self.prepare_next_state(
+            spec=spec,
+            run_key=run_key,
+            now_epoch=now_epoch,
+            experience=experience,
+            state=state,
         )
         self.state_store.save(next_state)
         return ScheduledIngestionResult("EXECUTED", experience, next_state)
