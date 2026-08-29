@@ -60,3 +60,13 @@ Release anchor:
 - truncated/corrupt/tampered/deleted-entry detection
 - RuntimeOrchestrator persistent evidence sink
 - restart E2E lineage continuation
+
+## V0.6.4 — Crash Consistency / Recovery Reconciliation ✅
+- TX_PREPARED / TX_COMMITTED write-ahead markers
+- deterministic crash transaction IDs
+- cross-store reconciliation
+- idempotent recovery after partial commit
+- lineage-ahead runtime restoration
+- untracked state-ahead hard block
+- conflict detection without guessed rollback
+- crash-safe RuntimeOrchestrator path

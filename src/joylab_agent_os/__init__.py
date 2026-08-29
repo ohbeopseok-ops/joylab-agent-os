@@ -22,6 +22,10 @@ from .persistent_lineage import (
     LineageEntry, PersistentLineageJournal,
     PersistentExperienceStore, PersistentEvidenceStore,
 )
+from .crash_reconciliation import (
+    CrashTransaction, CrashCommitResult, RecoveryReport,
+    RecoveryReconciler, CrashConsistencyCoordinator,
+)
 from .memory_router import MemoryRouter
 from .memory_write_policy import MemoryWritePolicy
 from .adapters.core8 import Core8Adapter, Core8Decision, Core8E2EResult

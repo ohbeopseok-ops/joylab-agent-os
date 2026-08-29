@@ -31,12 +31,14 @@ class RuntimeOrchestrator:
         experiences: ExperienceLogger,
         evidence_builder: EvidenceBuilder | None = None,
         evidence_store: Any | None = None,
+        commit_coordinator: Any | None = None,
     ) -> None:
         self.plugins = plugins
         self.ingestion = ingestion
         self.experiences = experiences
         self.evidence_builder = evidence_builder or EvidenceBuilder()
         self.evidence_store = evidence_store
+        self.commit_coordinator = commit_coordinator
 
     def execute(
         self,
@@ -62,6 +64,11 @@ class RuntimeOrchestrator:
         if plugin.domain.strip().lower() != schedule.domain.strip().lower():
             raise ValueError("PLUGIN_SCHEDULE_DOMAIN_MISMATCH")
 
+        if self.commit_coordinator is not None:
+            recovery = self.commit_coordinator.reconciler.reconcile()
+            if recovery.status == "RECOVERY_BLOCKED":
+                raise ValueError(recovery.reason)
+
         schedule_status, schedule_state = self.ingestion.check_status(
             spec=schedule,
             run_key=run_key,
@@ -79,6 +86,23 @@ class RuntimeOrchestrator:
         prepared = self.ingestion.adapters.route(schedule.domain, signal)
         if self.experiences.contains_id(prepared.experience_id):
             raise ValueError("EXPERIENCE_ID_ALREADY_EXISTS")
+
+        if self.commit_coordinator is not None:
+            tx = self.commit_coordinator.build_transaction(
+                schedule=schedule,
+                run_key=run_key,
+                now_epoch=now_epoch,
+                experience=prepared,
+                base_state=schedule_state,
+            )
+            committed = self.commit_coordinator.commit(tx)
+            return OrchestrationResult(
+                status="EXECUTED",
+                experience=prepared,
+                evidence=committed.evidence,
+                evidence_artifact=committed.evidence_artifact,
+                runtime_sequence=committed.state.sequence,
+            )
 
         result = self.ingestion.run_prepared(
             spec=schedule,
