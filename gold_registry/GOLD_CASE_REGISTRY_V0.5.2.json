@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
-  "registry_version": "V0.6.2",
-  "generated_from": "PR #17 atomicity-hardened CI GREEN; GOLD_001~092 certified",
+  "registry_version": "V0.6.3-CANDIDATE",
+  "generated_from": "V0.6.2 merged baseline + PR #18 candidate tests GOLD_093~102",
   "allowed_statuses": [
     "CERTIFIED",
     "CANDIDATE",
@@ -1201,6 +1201,136 @@
         "pull_request": 17,
         "evidence_refs": [
           "tests/test_runtime_orchestrator.py"
+        ]
+      }
+    },
+    {
+      "id": "GOLD_093",
+      "status": "CANDIDATE",
+      "component": "persistent_lineage",
+      "source_test": "tests/test_persistent_lineage.py",
+      "provenance": {
+        "repository": "ohbeopseok-ops/joylab-agent-os",
+        "pull_request": 18,
+        "evidence_refs": [
+          "tests/test_persistent_lineage.py"
+        ]
+      }
+    },
+    {
+      "id": "GOLD_094",
+      "status": "CANDIDATE",
+      "component": "persistent_lineage",
+      "source_test": "tests/test_persistent_lineage.py",
+      "provenance": {
+        "repository": "ohbeopseok-ops/joylab-agent-os",
+        "pull_request": 18,
+        "evidence_refs": [
+          "tests/test_persistent_lineage.py"
+        ]
+      }
+    },
+    {
+      "id": "GOLD_095",
+      "status": "CANDIDATE",
+      "component": "persistent_lineage",
+      "source_test": "tests/test_persistent_lineage.py",
+      "provenance": {
+        "repository": "ohbeopseok-ops/joylab-agent-os",
+        "pull_request": 18,
+        "evidence_refs": [
+          "tests/test_persistent_lineage.py"
+        ]
+      }
+    },
+    {
+      "id": "GOLD_096",
+      "status": "CANDIDATE",
+      "component": "persistent_lineage",
+      "source_test": "tests/test_persistent_lineage.py",
+      "provenance": {
+        "repository": "ohbeopseok-ops/joylab-agent-os",
+        "pull_request": 18,
+        "evidence_refs": [
+          "tests/test_persistent_lineage.py"
+        ]
+      }
+    },
+    {
+      "id": "GOLD_097",
+      "status": "CANDIDATE",
+      "component": "persistent_lineage",
+      "source_test": "tests/test_persistent_lineage.py",
+      "provenance": {
+        "repository": "ohbeopseok-ops/joylab-agent-os",
+        "pull_request": 18,
+        "evidence_refs": [
+          "tests/test_persistent_lineage.py"
+        ]
+      }
+    },
+    {
+      "id": "GOLD_098",
+      "status": "CANDIDATE",
+      "component": "persistent_lineage",
+      "source_test": "tests/test_persistent_lineage.py",
+      "provenance": {
+        "repository": "ohbeopseok-ops/joylab-agent-os",
+        "pull_request": 18,
+        "evidence_refs": [
+          "tests/test_persistent_lineage.py"
+        ]
+      }
+    },
+    {
+      "id": "GOLD_099",
+      "status": "CANDIDATE",
+      "component": "persistent_lineage",
+      "source_test": "tests/test_persistent_lineage.py",
+      "provenance": {
+        "repository": "ohbeopseok-ops/joylab-agent-os",
+        "pull_request": 18,
+        "evidence_refs": [
+          "tests/test_persistent_lineage.py"
+        ]
+      }
+    },
+    {
+      "id": "GOLD_100",
+      "status": "CANDIDATE",
+      "component": "persistent_lineage",
+      "source_test": "tests/test_persistent_lineage.py",
+      "provenance": {
+        "repository": "ohbeopseok-ops/joylab-agent-os",
+        "pull_request": 18,
+        "evidence_refs": [
+          "tests/test_persistent_lineage.py"
+        ]
+      }
+    },
+    {
+      "id": "GOLD_101",
+      "status": "CANDIDATE",
+      "component": "persistent_lineage",
+      "source_test": "tests/test_persistent_lineage.py",
+      "provenance": {
+        "repository": "ohbeopseok-ops/joylab-agent-os",
+        "pull_request": 18,
+        "evidence_refs": [
+          "tests/test_persistent_lineage.py"
+        ]
+      }
+    },
+    {
+      "id": "GOLD_102",
+      "status": "CANDIDATE",
+      "component": "persistent_lineage",
+      "source_test": "tests/test_persistent_lineage.py",
+      "provenance": {
+        "repository": "ohbeopseok-ops/joylab-agent-os",
+        "pull_request": 18,
+        "evidence_refs": [
+          "tests/test_persistent_lineage.py"
         ]
       }
     }
