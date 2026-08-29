@@ -1,21 +1,16 @@
-# TASKS — PR #11 Adapter + Domain Plugin Registry
+# TASKS — PR #12 Gold Registry V0.5.2
 
 ## P0
-- [x] AdapterRegistry
-- [x] automatic domain routing
-- [x] DomainPlugin
-- [x] DomainPluginRegistry
-- [x] Core8 registration
-- [x] AI Power registration
-- [x] NVDA Event registration
-- [x] EPS Revision registration
-- [x] Master Ranking registration
-
-## Safety
-- [x] unknown domain blocked
-- [x] wrong signal type blocked
-- [x] duplicate adapter blocked
-- [x] disabled plugin excluded
+- [x] JSON registry
+- [x] GOLD_001 ~ GOLD_059 registered
+- [x] CERTIFIED / CANDIDATE / INVALID statuses
+- [x] component ownership
+- [x] source test path
+- [x] PR provenance
+- [x] evidence references
+- [x] duplicate ID block
+- [x] invalid status block
+- [x] contiguous numbering validation
 
 ## Gold
-- [x] GOLD_053 ~ GOLD_059
+- [x] GOLD_060 ~ GOLD_064
