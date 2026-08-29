@@ -1,64 +1,50 @@
-# SPEC — JoyLab Agent OS V0.1
+# SPEC — JoyLab Agent OS V0.2
 
 ## Status
 
-**FROZEN CANDIDATE: V0.1 / PR #1**
+**IMPLEMENTATION CANDIDATE: V0.2 / PR #2**
 
-## 1. Functional requirements
+## 1. Governed evidence pipeline
 
-### FR-001 Skill registration
-The system shall register a `SkillRecord` with:
+```text
+ExperienceRecord[]
+  -> EvidenceBuilder.build()
+  -> EvidenceSnapshot
+  -> EvidenceBuilder.to_certification_evidence()
+  -> CertificationEvidence
+  -> CertificationGate.evaluate()
+```
+
+## 2. Evidence Snapshot contract
+
+The snapshot shall be scoped to one exact `skill_id + skill_version`.
+
+Fields:
 - skill_id
-- name
-- domain
-- version
-- state
-- created_at
-- metadata
-
-### FR-002 Valid lifecycle
-Allowed transitions:
-- DISCOVERED -> CANDIDATE
-- CANDIDATE -> TESTING
-- TESTING -> CERTIFIED
-- CERTIFIED -> DEPRECATED
-- TESTING -> DEPRECATED
-
-No transition may bypass `TESTING` into `CERTIFIED`.
-
-### FR-003 Append-only experience
-ExperienceLogger shall append immutable `ExperienceRecord` entries.
-
-### FR-004 Evidence aggregation
-Certification evidence shall include:
+- skill_version
 - samples
+- successful_samples
 - gold_cases
 - confidence
 - oos_pass
 - regression_pass
 - hard_gate_violations
+- source_experience_ids
 
-### FR-005 Deterministic gate
-The same evidence and policy shall always return the same result.
+## 3. Deterministic aggregation rules
 
-### FR-006 Explainable rejection
-A failed certification shall contain reason codes.
+- `samples`: selected experience count
+- `successful_samples`: selected records where success is true
+- `gold_cases`: records tagged `gold_case`
+- `confidence`: arithmetic mean of available `metrics["confidence"]`; 0.0 when absent
+- `oos_pass`: at least one `oos_pass` and no `oos_fail`
+- `regression_pass`: at least one `regression_pass` and no `regression_fail`
+- `hard_gate_violations`: records tagged `hard_gate_violation`
+- evidence from other skill ids or versions must be excluded
 
-### FR-007 Certified immutability
-A certified skill may not be replaced in-place.
-A changed implementation requires a new version and a new certification cycle.
+## 4. Certification policy
 
-## 2. Non-functional requirements
-
-- Python >= 3.11
-- no external runtime dependency in V0.1
-- unit tests deterministic
-- JSON-serializable records
-- UTC timestamps
-- domain-neutral core
-- no network requirement for tests
-
-## 3. Certification policy V0.1
+V0.1 gate policy remains unchanged:
 
 ```yaml
 min_samples: 20
@@ -69,23 +55,18 @@ require_regression_pass: true
 max_hard_gate_violations: 0
 ```
 
-## 4. Result model
+## 5. Safety invariants
 
-```json
-{
-  "passed": false,
-  "reasons": ["INSUFFICIENT_SAMPLES"],
-  "evaluated_policy": "V0.1"
-}
-```
+- source Experience records remain append-only
+- EvidenceBuilder does not mutate Experience records
+- fail evidence overrides pass markers for OOS and regression
+- snapshot preserves source Experience IDs for lineage
+- CertificationGate remains deterministic
 
-## 5. Definition of Done — PR #1
+## 6. Definition of Done — PR #2
 
-PR #1 is complete only when:
-- package imports cleanly
-- all Gold Cases pass
-- lifecycle guard is tested
-- certified overwrite guard is tested
-- certification output is deterministic
-- README quickstart works
-- GitHub Actions CI is green
+PR #2 is complete only when:
+- all V0.1 tests continue to pass
+- EvidenceBuilder Gold Cases pass
+- Python 3.11 / 3.12 / 3.13 CI are green
+- no V0.1 certification rule regresses

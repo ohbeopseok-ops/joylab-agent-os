@@ -1,42 +1,33 @@
-# TASKS — PR #1
+# TASKS — PR #2 EvidenceBuilder V0.2
 
-## P0 — Repository foundation
-- [x] create `joylab-agent-os`
-- [x] Python 3.11+ package
-- [x] pytest configuration
-- [x] CI workflow
+## V0.1 Governed Core
+- [x] Skill Registry
+- [x] Experience Logger
+- [x] Certification Gate
+- [x] Gold Cases
+- [x] CI matrix
 
-## P0 — Skill Registry
-- [x] SkillState enum
-- [x] SkillRecord
-- [x] SkillRegistry
-- [x] lifecycle transition validation
-- [x] certified overwrite protection
-
-## P0 — Experience Logger
-- [x] ExperienceRecord
-- [x] append-only logger
-- [x] query by skill id
-- [x] count evidence records
-
-## P0 — Certification Gate
-- [x] CertificationPolicy
-- [x] CertificationEvidence
-- [x] CertificationResult
-- [x] deterministic reason codes
-- [x] pass/fail evaluation
+## P0 — Evidence Builder
+- [x] EvidenceSnapshot model
+- [x] filter evidence by skill id + version
+- [x] aggregate sample count
+- [x] aggregate Gold Case count
+- [x] aggregate confidence
+- [x] OOS pass/fail derivation
+- [x] regression pass/fail derivation
+- [x] hard-gate violation count
+- [x] snapshot -> CertificationEvidence conversion
 
 ## P0 — Gold Cases
-- [x] GOLD_001 valid certification
-- [x] GOLD_002 insufficient samples
-- [x] GOLD_003 OOS fail
-- [x] GOLD_004 regression fail
-- [x] GOLD_005 hard gate violation
-- [x] GOLD_006 certified overwrite blocked
-- [x] GOLD_007 invalid lifecycle jump blocked
+- [x] GOLD_008 valid snapshot certifies
+- [x] GOLD_009 other skills/versions excluded
+- [x] GOLD_010 OOS failure overrides pass
+- [x] GOLD_011 regression failure overrides pass
+- [x] GOLD_012 hard-gate violations counted
+- [x] GOLD_013 missing confidence defaults to zero
 
-## P1 — Follow-up
-- [ ] EvidenceBuilder
+## P1 — Next
 - [ ] JSON persistence adapter
-- [ ] registry schema migration
-- [ ] CI standard gate hardening
+- [ ] Evidence Snapshot serialization
+- [ ] schema versioning
+- [ ] Memory Router V0.3

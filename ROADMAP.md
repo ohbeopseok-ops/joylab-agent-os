@@ -1,17 +1,17 @@
 # ROADMAP — JoyLab Agent OS
 
-## V0.1 — Governed Core
+## V0.1 — Governed Core ✅
 - Skill Registry
 - Experience Logger
 - Certification Gate
 - Gold Cases
 - lifecycle hard gates
 
-## V0.2 — Evidence Builder
+## V0.2 — Evidence Builder 🚧
 - aggregate metrics from execution logs
 - evidence snapshots
-- certification reports
-- schema versioning
+- CertificationEvidence conversion
+- evidence lineage via source experience IDs
 
 ## V0.3 — Memory Router
 - Working / Operational / Evidence memory tiers
