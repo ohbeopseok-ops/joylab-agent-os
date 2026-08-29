@@ -18,6 +18,7 @@ from .adapter_registry import (
     AdapterRegistry, AdapterRegistration, DomainPlugin, DomainPluginRegistry,
     build_default_investment_adapter_registry,
 )
+from .gold_registry import GoldCaseEntry, GoldCaseRegistry, ALLOWED_STATUSES
 from .skill_candidate import SkillCandidate, SkillCandidateGenerator
 from .skill_curator import CuratorRecommendation, SkillCurator
 from .candidate_diff import CandidateDiffArtifact, CandidateDiffBuilder
