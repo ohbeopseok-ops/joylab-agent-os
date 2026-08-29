@@ -51,4 +51,4 @@ jobs:
 
       - name: JoyLab V0.5 Certification Gate
         run: |
-          python scripts/v05_certification_gate.py             --ci-green             --regression-green             --required-certified-gold 64
+          python scripts/v05_certification_gate.py             --ci-green             --regression-green             --required-certified-gold 70
