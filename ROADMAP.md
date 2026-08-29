@@ -51,7 +51,7 @@ Release anchor:
 - multi-domain provenance
 - multi-interface runtime
 
-## V0.6.3 — Persistent Experience / Evidence Store 🚧
+## V0.6.3 — Persistent Experience / Evidence Store ✅
 - append-only hash-chained JSONL lineage journal
 - persistent Experience recovery
 - persistent EVS recovery
