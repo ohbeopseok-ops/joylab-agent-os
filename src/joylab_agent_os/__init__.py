@@ -30,6 +30,16 @@ from .evidence_graph import (
     GraphEdgeType,
     build_core8_lineage,
 )
+from .graph_integrity import (
+    EvidenceGraphSnapshotArtifact,
+    graph_payload,
+    canonical_graph_json,
+    graph_sha256,
+    graph_snapshot_id,
+    seal_graph,
+    verify_graph_snapshot,
+    graph_artifact_to_json,
+)
 
 __all__ = [
     "SkillState",
@@ -67,4 +77,12 @@ __all__ = [
     "GraphEdge",
     "GraphEdgeType",
     "build_core8_lineage",
+    "EvidenceGraphSnapshotArtifact",
+    "graph_payload",
+    "canonical_graph_json",
+    "graph_sha256",
+    "graph_snapshot_id",
+    "seal_graph",
+    "verify_graph_snapshot",
+    "graph_artifact_to_json",
 ]
