@@ -16,6 +16,8 @@ GENESIS_HASH = "0" * 64
 JOURNAL_SCHEMA_VERSION = "1.0"
 EXPERIENCE_KIND = "EXPERIENCE"
 EVIDENCE_KIND = "EVIDENCE"
+TX_PREPARED_KIND = "TX_PREPARED"
+TX_COMMITTED_KIND = "TX_COMMITTED"
 
 
 @dataclass(frozen=True)
@@ -177,7 +179,12 @@ class PersistentLineageJournal:
                 raise ValueError("LINEAGE_SEQUENCE_MISMATCH")
             if entry.prev_hash != expected_prev:
                 raise ValueError("LINEAGE_PREV_HASH_MISMATCH")
-            if entry.kind not in {EXPERIENCE_KIND, EVIDENCE_KIND}:
+            if entry.kind not in {
+                EXPERIENCE_KIND,
+                EVIDENCE_KIND,
+                TX_PREPARED_KIND,
+                TX_COMMITTED_KIND,
+            }:
                 raise ValueError("LINEAGE_KIND_INVALID")
 
             expected_hash = _entry_hash(
@@ -191,8 +198,11 @@ class PersistentLineageJournal:
 
             if entry.kind == EXPERIENCE_KIND:
                 experience_from_payload(entry.payload)
-            else:
+            elif entry.kind == EVIDENCE_KIND:
                 evidence_from_payload(entry.payload)
+            else:
+                if not isinstance(entry.payload, dict) or not entry.payload:
+                    raise ValueError("LINEAGE_TX_PAYLOAD_INVALID")
 
             entries.append(entry)
             expected_prev = entry.entry_hash
