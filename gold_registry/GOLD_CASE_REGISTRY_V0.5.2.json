@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
-  "registry_version": "V0.5.3",
-  "generated_from": "PR #13 first CI GREEN; GOLD_001~070 certified",
+  "registry_version": "V0.6.0",
+  "generated_from": "PR #15 initial CI GREEN; GOLD_001~076 certified",
   "allowed_statuses": [
     "CERTIFIED",
     "CANDIDATE",
@@ -915,6 +915,84 @@
         "pull_request": 13,
         "evidence_refs": [
           "tests/test_v05_certification_gate.py"
+        ]
+      }
+    },
+    {
+      "id": "GOLD_071",
+      "status": "CERTIFIED",
+      "component": "runtime_state",
+      "source_test": "tests/test_runtime_state.py",
+      "provenance": {
+        "repository": "ohbeopseok-ops/joylab-agent-os",
+        "pull_request": 15,
+        "evidence_refs": [
+          "tests/test_runtime_state.py"
+        ]
+      }
+    },
+    {
+      "id": "GOLD_072",
+      "status": "CERTIFIED",
+      "component": "runtime_state",
+      "source_test": "tests/test_runtime_state.py",
+      "provenance": {
+        "repository": "ohbeopseok-ops/joylab-agent-os",
+        "pull_request": 15,
+        "evidence_refs": [
+          "tests/test_runtime_state.py"
+        ]
+      }
+    },
+    {
+      "id": "GOLD_073",
+      "status": "CERTIFIED",
+      "component": "runtime_state",
+      "source_test": "tests/test_runtime_state.py",
+      "provenance": {
+        "repository": "ohbeopseok-ops/joylab-agent-os",
+        "pull_request": 15,
+        "evidence_refs": [
+          "tests/test_runtime_state.py"
+        ]
+      }
+    },
+    {
+      "id": "GOLD_074",
+      "status": "CERTIFIED",
+      "component": "runtime_state",
+      "source_test": "tests/test_runtime_state.py",
+      "provenance": {
+        "repository": "ohbeopseok-ops/joylab-agent-os",
+        "pull_request": 15,
+        "evidence_refs": [
+          "tests/test_runtime_state.py"
+        ]
+      }
+    },
+    {
+      "id": "GOLD_075",
+      "status": "CERTIFIED",
+      "component": "runtime_state",
+      "source_test": "tests/test_runtime_state.py",
+      "provenance": {
+        "repository": "ohbeopseok-ops/joylab-agent-os",
+        "pull_request": 15,
+        "evidence_refs": [
+          "tests/test_runtime_state.py"
+        ]
+      }
+    },
+    {
+      "id": "GOLD_076",
+      "status": "CERTIFIED",
+      "component": "runtime_state",
+      "source_test": "tests/test_runtime_state.py",
+      "provenance": {
+        "repository": "ohbeopseok-ops/joylab-agent-os",
+        "pull_request": 15,
+        "evidence_refs": [
+          "tests/test_runtime_state.py"
         ]
       }
     }

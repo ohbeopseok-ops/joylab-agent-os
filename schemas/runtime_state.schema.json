@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://joylab.local/schemas/runtime_state.schema.json",
+  "title": "JoyLab Runtime State Envelope",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "state_id", "sha256", "state"],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "state_id": {"type": "string", "pattern": "^RTS-[0-9a-f]{20}$"},
+    "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "state": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["runtime_id", "sequence", "active_plugins", "checkpoints", "metadata"],
+      "properties": {
+        "runtime_id": {"type": "string", "minLength": 1},
+        "sequence": {"type": "integer", "minimum": 0},
+        "active_plugins": {
+          "type": "array",
+          "items": {"type": "string", "minLength": 1},
+          "uniqueItems": true
+        },
+        "checkpoints": {
+          "type": "object",
+          "additionalProperties": {"type": "string"}
+        },
+        "metadata": {"type": "object"}
+      }
+    }
+  }
+}

@@ -1,62 +1,44 @@
-# SPEC — JoyLab Agent OS V0.5.3
+# SPEC — JoyLab Agent OS V0.6 Persistent Runtime State
 
 ## Status
+IMPLEMENTATION CANDIDATE — PR #15
 
-**FROZEN CERTIFIED BASELINE**
+## Purpose
 
-Frozen commit:
-`9e9cb2cfc75aaf6430225c729522c72d1306f71a`
-
-Release anchor:
-`release/v0.5.3-frozen`
-
-## Certified release decision
+Persist non-evidence runtime execution state without changing the frozen V0.5.3 trust contracts.
 
 ```text
-Python 3.11 / 3.12 / 3.13
- + Regression
- + GOLD_001~070 CERTIFIED
- + Gold Provenance
- + JSON Schema
- + EVS Integrity
- + EVG Integrity
- + Approval Audit
-        ↓
-V05CertificationGate
-        ↓
-PASS
+RuntimeState
+  -> canonical JSON
+  -> SHA-256
+  -> RTS-{20 hex}
+  -> atomic JSON write
+  -> restart recovery
 ```
 
-## Required checks
+## State scope
+- runtime_id
+- monotonic sequence/checkpoint marker
+- active plugins
+- per-domain checkpoints
+- non-evidence runtime metadata
 
-- python_ci
-- regression
-- gold_contiguous
-- gold_provenance
-- gold_no_invalid
-- gold_certified_minimum >= 70
-- schema
-- evs
-- evg
-- audit
+## Hard boundary
+RuntimeStateStore must not rewrite EVS, EVG, Gold provenance, or Approval Audit history.
 
-Any failed check blocks release.
+## Integrity
+- corrupt JSON => block
+- hash/id mismatch => block
+- missing state => explicit not-found
+- negative sequence => block
+- successful save uses temp file + fsync + atomic replace
 
-## Frozen governance
+## Governance
+GOLD_071~076 enter as CANDIDATE and may be promoted only after CI evidence is GREEN.
 
-- CERTIFIED skills are immutable in place.
-- new Gold Cases start as CANDIDATE.
-- promotion requires GREEN evidence.
-- historical provenance is append-only.
-- release/v0.5.3-frozen must remain anchored to the frozen commit.
-- post-freeze feature work starts at V0.6 or later.
-
-## Definition of Done
-
-- GOLD_001~070 CERTIFIED
-- Python 3.11 GREEN
-- Python 3.12 GREEN
-- Python 3.13 GREEN
-- V05CertificationGate GREEN
-- frozen SHA anchored
-- frozen release notes committed
+## DoD
+- GOLD_001~070 remain green
+- GOLD_071~076 pass
+- Python 3.11/3.12/3.13 green
+- certification-gate green
+- final registry GOLD_001~076 CERTIFIED

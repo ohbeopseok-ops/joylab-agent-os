@@ -19,11 +19,22 @@ Frozen SHA:
 Release anchor:
 `release/v0.5.3-frozen`
 
-## V0.6 — Post-freeze expansion
-- persistent runtime state
-- scheduled ingestion
-- adapter/plugin orchestration
-- multi-domain execution lifecycle
+## V0.6 — Persistent Runtime State 🚧
+- atomic JSON state persistence
+- restart recovery
+- runtime state SHA-256 integrity
+- immutable RTS snapshot ID
+- runtime state JSON Schema
+- corruption/integrity hard blocks
+
+## V0.6.1 — Scheduled Ingestion
+- schedule contracts
+- checkpoint-aware ingestion
+- duplicate-run protection
+
+## V0.6.2 — Adapter / Plugin Orchestration
+- enabled-plugin routing
+- multi-domain runtime lifecycle
 - compatibility-preserving migrations
 
 ## V1.0 — JoyLab Personal Agent OS
