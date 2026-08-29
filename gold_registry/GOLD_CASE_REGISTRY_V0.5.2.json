@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
-  "registry_version": "V0.6.0",
-  "generated_from": "PR #15 initial CI GREEN; GOLD_001~076 certified",
+  "registry_version": "V0.6.1-CANDIDATE",
+  "generated_from": "V0.6 runtime baseline + PR #16 candidate tests",
   "allowed_statuses": [
     "CERTIFIED",
     "CANDIDATE",
@@ -993,6 +993,97 @@
         "pull_request": 15,
         "evidence_refs": [
           "tests/test_runtime_state.py"
+        ]
+      }
+    },
+    {
+      "id": "GOLD_077",
+      "status": "CANDIDATE",
+      "component": "scheduled_ingestion",
+      "source_test": "tests/test_scheduled_ingestion.py",
+      "provenance": {
+        "repository": "ohbeopseok-ops/joylab-agent-os",
+        "pull_request": 16,
+        "evidence_refs": [
+          "tests/test_scheduled_ingestion.py"
+        ]
+      }
+    },
+    {
+      "id": "GOLD_078",
+      "status": "CANDIDATE",
+      "component": "scheduled_ingestion",
+      "source_test": "tests/test_scheduled_ingestion.py",
+      "provenance": {
+        "repository": "ohbeopseok-ops/joylab-agent-os",
+        "pull_request": 16,
+        "evidence_refs": [
+          "tests/test_scheduled_ingestion.py"
+        ]
+      }
+    },
+    {
+      "id": "GOLD_079",
+      "status": "CANDIDATE",
+      "component": "scheduled_ingestion",
+      "source_test": "tests/test_scheduled_ingestion.py",
+      "provenance": {
+        "repository": "ohbeopseok-ops/joylab-agent-os",
+        "pull_request": 16,
+        "evidence_refs": [
+          "tests/test_scheduled_ingestion.py"
+        ]
+      }
+    },
+    {
+      "id": "GOLD_080",
+      "status": "CANDIDATE",
+      "component": "scheduled_ingestion",
+      "source_test": "tests/test_scheduled_ingestion.py",
+      "provenance": {
+        "repository": "ohbeopseok-ops/joylab-agent-os",
+        "pull_request": 16,
+        "evidence_refs": [
+          "tests/test_scheduled_ingestion.py"
+        ]
+      }
+    },
+    {
+      "id": "GOLD_081",
+      "status": "CANDIDATE",
+      "component": "scheduled_ingestion",
+      "source_test": "tests/test_scheduled_ingestion.py",
+      "provenance": {
+        "repository": "ohbeopseok-ops/joylab-agent-os",
+        "pull_request": 16,
+        "evidence_refs": [
+          "tests/test_scheduled_ingestion.py"
+        ]
+      }
+    },
+    {
+      "id": "GOLD_082",
+      "status": "CANDIDATE",
+      "component": "scheduled_ingestion",
+      "source_test": "tests/test_scheduled_ingestion.py",
+      "provenance": {
+        "repository": "ohbeopseok-ops/joylab-agent-os",
+        "pull_request": 16,
+        "evidence_refs": [
+          "tests/test_scheduled_ingestion.py"
+        ]
+      }
+    },
+    {
+      "id": "GOLD_083",
+      "status": "CANDIDATE",
+      "component": "scheduled_ingestion",
+      "source_test": "tests/test_scheduled_ingestion.py",
+      "provenance": {
+        "repository": "ohbeopseok-ops/joylab-agent-os",
+        "pull_request": 16,
+        "evidence_refs": [
+          "tests/test_scheduled_ingestion.py"
         ]
       }
     }
