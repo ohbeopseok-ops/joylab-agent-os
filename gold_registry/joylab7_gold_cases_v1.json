@@ -1,0 +1,16 @@
+{
+  "version": "1.0",
+  "policy": "Reference archetypes for agent evaluation. Each case must be manually revalidated before training or automated scoring changes.",
+  "cases": [
+    {"id":"GOLD-J7-001","pillar":"INVEST","type":"analysis","title":"삼성전자 수급 반등과 다음 거래일 체크포인트","required_nodes":["Samsung Electronics","Institutional Flow","HBM"],"expected_score":94,"hard_gate":true},
+    {"id":"GOLD-J7-002","pillar":"INVEST","type":"guide","title":"인덱스와 개별주 비중을 확신 수준에 따라 정하는 법","required_nodes":["Index Investing","Concentration Risk","Portfolio"],"expected_score":92,"hard_gate":true},
+    {"id":"GOLD-J7-003","pillar":"INVEST","type":"analysis","title":"미국 중간선거 정책 변화의 자산별 전달경로","required_nodes":["US Midterms","Tariffs","Sector Rotation"],"expected_score":93,"hard_gate":true},
+    {"id":"GOLD-J7-004","pillar":"AI","type":"analysis","title":"AI Agent가 단순 챗봇과 다른 이유","required_nodes":["AI Agent","Tool Use","Workflow Automation"],"expected_score":91,"hard_gate":true},
+    {"id":"GOLD-J7-005","pillar":"AI","type":"guide","title":"MCP와 에이전트 도구 연결을 실무에 적용하는 구조","required_nodes":["MCP","Agents","Integrations"],"expected_score":90,"hard_gate":true},
+    {"id":"GOLD-J7-006","pillar":"WORK","type":"analysis","title":"성급한 정답이 구성원의 질문을 막는 이유","required_nodes":["Leadership","Coaching","Questioning"],"expected_score":94,"hard_gate":true},
+    {"id":"GOLD-J7-007","pillar":"WORK","type":"guide","title":"상담사 열린 질문 훈련을 KPI와 연결하는 법","required_nodes":["CS","Open Questions","KPI"],"expected_score":92,"hard_gate":true},
+    {"id":"GOLD-J7-008","pillar":"BOOKS","type":"review","title":"기계와 맞서 싸운 사람들에서 읽는 기술 도입과 협상 구조","required_nodes":["Book Review","Technology","Labor"],"expected_score":90,"hard_gate":true},
+    {"id":"GOLD-J7-009","pillar":"BOOKS","type":"review","title":"AI 시대 부모로 살아가기에서 찾은 부모의 기준","required_nodes":["Book Review","AI Parenting","Education"],"expected_score":91,"hard_gate":true},
+    {"id":"GOLD-J7-010","pillar":"BUILD","type":"build-log","title":"JoyLab Investment OS를 예측과 학습 루프로 설계한 과정","required_nodes":["Investment OS","Prediction Journal","Regression"],"expected_score":95,"hard_gate":true}
+  ]
+}
