@@ -1,0 +1,51 @@
+id,title,pillar,type,decision,primary_node,secondary_nodes,link_strategy
+M001,2026 미국 중간선거 투자지도 ① 공화당 승리 수혜 미국주식·ETF,INVEST,analysis,KEEP,US Midterms,"US Equities|ETF|Policy",series-1-to-4
+M002,2026 미국 중간선거 투자지도 ② 트럼프 관세와 삼성전자·SK하이닉스·현대차,INVEST,analysis,KEEP,Tariffs,"Samsung Electronics|SK hynix|Hyundai Motor",series-1-to-4
+M003,2026 미국 중간선거 투자지도 ③ 머스크 정치 베팅과 테슬라·비트코인,INVEST,analysis,KEEP,Political Risk,"Tesla|Bitcoin|US Midterms",series-1-to-4
+M004,2026 미국 중간선거 투자지도 ④ 최종 자산배분,INVEST,guide,KEEP,Asset Allocation,"US Equities|Korea Equities|ETF",series-hub
+M005,트럼프·머스크 8,100억 승부수와 미국 증시 5가지 변수,INVEST,analysis,MERGE,US Midterms,"Political Funding|Policy|Markets",merge-into-M001
+M006,모르면 인덱스 사세요,INVEST,opinion,KEEP,Index Investing,"Concentration Risk|Nasdaq100",link-to-M007-M008
+M007,확신이 있을 때만 집중투자해야 하는 이유,INVEST,guide,KEEP,Concentration Risk,"Conviction|Risk Management",series-index-2
+M008,인덱스와 개별주 비중은 어떻게 정할까,INVEST,guide,KEEP,Portfolio Construction,"Index Investing|Single Stocks",series-index-3
+M009,워런 버핏의 S&P500 유언과 인덱스 철학,INVEST,analysis,KEEP,Index Investing,"Warren Buffett|S&P500|John Bogle",link-to-index-series
+M010,삼성전자 9월 4일 주가·수급 분석,INVEST,analysis,KEEP,Samsung Electronics,"Institutional Flow|Foreign Flow|Support Resistance",link-to-M011-M012
+M011,삼성전자 다음 거래일 체크포인트,INVEST,guide,KEEP,Samsung Electronics,"Price Levels|Flow|Scenario",follow-M010
+M012,삼성전자 기관 순매수와 25만원 바닥 해석,INVEST,analysis,MERGE,Samsung Electronics,"Institutional Flow|HBM",merge-into-M010
+M013,글로벌 ETF 자금 유입과 VOO·IVV·SPY,INVEST,analysis,KEEP,ETF Flows,"VOO|IVV|SPY",link-to-portfolio
+M014,서학개미 SOXL 집중매수와 반도체 레버리지 리스크,INVEST,analysis,KEEP,SOXL,"Semiconductors|Leverage|Retail Flow",link-to-risk
+M015,반도체 업황 DRAM·NAND·HBM 요약,INVEST,analysis,KEEP,Memory Cycle,"DRAM|NAND|HBM",link-to-samsung-skhy
+M016,LG전자 로봇 액추에이터 빅테크 공급 추진,INVEST,analysis,KEEP,LG Electronics,"Actuator|Humanoid|Physical AI",series-robotics-1
+M017,LG전자 로봇 부품 사업이 주가에 미칠 영향,INVEST,analysis,KEEP,Physical AI,"LG Electronics|Robotics|Margins",series-robotics-2
+M018,LG전자 액추에이터와 휴머노이드 밸류체인,INVEST,analysis,KEEP,Humanoid Robotics,"Actuator|Big Tech|Supply Chain",series-robotics-3
+M019,한국 경상수지 흑자와 증시 영향,INVEST,analysis,KEEP,Current Account,"KRW|Exports|KOSPI",macro-link
+M020,삼성전자·SK하이닉스 브랜드 가치 상승과 AI 슈퍼사이클,INVEST,analysis,KEEP,AI Semiconductor,"Brand Value|HBM|Global Tech",link-to-memory-cycle
+M021,외국인 수급으로 보는 반도체주 전망,INVEST,analysis,KEEP,Foreign Flow,"Semiconductors|KOSPI|FX",link-to-M010-M015
+M022,2026 중간선거와 한국 증시 정책 전달경로,INVEST,analysis,MERGE,Policy Transmission,"Tariffs|Korea Equities|FX",merge-into-series-M001-M004
+M023,ISA 장기 포트폴리오 6자산 배분,INVEST,guide,KEEP,ISA,"S&P500|Nasdaq100|Dividend ETF",portfolio-hub
+M024,VOO·QQQM·SCHD 비교,INVEST,guide,KEEP,ETF Selection,"VOO|QQQM|SCHD",link-to-M023
+M025,JoyLab 투자 액션 사자·보류·팔자 기준,INVEST,guide,KEEP,Investment Gate,"Scorecard|Position Sizing|Risk",policy-node
+M026,AI 에이전트 판이 바뀌었다,AI,analysis,KEEP,AI Agents,"Automation|Tool Use|Workflow",ai-agent-hub
+M027,차세대 AI 자율 업무 에이전트 생태계,AI,analysis,KEEP,Agentic AI,"Coding|Data Analysis|Business Workflow",link-to-M026
+M028,이든티앤에스 문서 분석부터 시스템 실행까지,AI,analysis,KEEP,Enterprise Agent,"RPA|Documents|Public Sector",case-study
+M029,MCP가 에이전트 업무 연결을 바꾸는 방식,AI,guide,KEEP,MCP,"Agents|Tools|Integrations",ai-foundation
+M030,TradingView 자연어→Pine Script 전략 생성,AI,guide,KEEP,AI Coding,"TradingView|Pine Script|Backtest",link-to-build
+M031,GPT·Claude·Codex를 역할별로 쓰는 방법,AI,guide,KEEP,Model Orchestration,"GPT|Claude|Codex",ai-tools-hub
+M032,VoiceStudio 로컬 음성복제·더빙 도구 분석,AI,guide,MOVE,AI Tools,"TTS|STT|Local AI",tools-library
+M033,Ponytail 에이전트 코드 간소화 도구,AI,brief,MERGE,Agent Tools,"Code Simplification|Agents",merge-into-ai-tools
+M034,기업용 AI 에이전트가 생산성 격차를 만드는 이유,AI,analysis,KEEP,Enterprise AI,"Productivity|Agents|Automation",link-to-M026
+M035,성급한 정답이 앗아간 질문의 틈,WORK,analysis,KEEP,Coaching,"Leadership|Questions|Growth",leadership-series-1
+M036,리더가 답을 주지 않을 때 사람이 성장한다,WORK,analysis,KEEP,Leadership,"Autonomy|Coaching|Decision Making",leadership-series-2
+M037,좋은 리더는 자신이 없어도 움직이는 사람을 남긴다,WORK,opinion,KEEP,Leadership,"Delegation|Autonomy|Team",leadership-series-3
+M038,열린 질문이 상담 품질을 바꾸는 이유,WORK,guide,KEEP,Open Questions,"CS|Coaching|QA",cs-coaching-hub
+M039,상담사 KPI와 열린 질문 훈련 연결,WORK,guide,KEEP,CS KPI,"Open Questions|Performance|Coaching",link-to-M038
+M040,GRIT과 공정성 기반 조직문화,WORK,analysis,KEEP,Organizational Culture,"GRIT|Fairness|Leadership",culture-hub
+M041,다정함의 과학 서평 — 친절도 KPI가 될 수 있을까,BOOKS,review,KEEP,Kindness,"Healthcare|KPI|Relationships",books-work-link
+M042,AI 시대 부모로 살아가기 서평,BOOKS,review,KEEP,AI Parenting,"Education|Parents|AI",books-education
+M043,기계와 맞서 싸운 사람들 서평,BOOKS,review,KEEP,Technology and Labor,"Luddite|Automation|Negotiation",books-work-link
+M044,더 하우스 온 더 보더랜드 서평,BOOKS,review,KEEP,Cosmic Horror,"Boundaries|Literature|Fear",books-literature
+M045,들쥐 넷플릭스 리뷰와 정체성 공포,BOOKS,review,MOVE,Film Review,"Identity|Thriller|Folklore",culture-review
+M046,JoyLab Reading List — 리더가 읽어야 할 책,BOOKS,reading-list,KEEP,Leadership Reading,"Coaching|Culture|Management",reading-list-hub
+M047,JoyLab Investment OS 설계와 Prediction Journal,BUILD,build-log,KEEP,Investment OS,"Prediction|Scorecard|Regression",build-invest-hub
+M048,JoyLab Data Hub — 공개 API 통합 구조,BUILD,build-log,KEEP,Data Hub,"KIS|DART|ECOS|KOSIS",build-data-hub
+M049,상담사 고객 상황 관계도 생성기,BUILD,build-log,KEEP,CS Learning App,"Missing Question Engine|Golden Case|React",build-cs-hub
+M050,JoyLab Content OS에서 JoyLab Notes로의 전환,BUILD,build-log,KEEP,JoyLab Notes,"Content OS|Knowledge Graph|Publishing",joylab-notes-origin
