@@ -1,0 +1,64 @@
+name: release-gate
+
+on:
+  deployment_status:
+  workflow_dispatch:
+    inputs:
+      base_url:
+        description: "Preview or production base URL"
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  release-gate:
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      github.event.deployment_status.state == 'success'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout deployed revision
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.deployment.sha || github.sha }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -e ".[dev]"
+
+      - name: Regression suite
+        run: pytest -q
+
+      - name: Certification gate
+        run: |
+          python scripts/v05_certification_gate.py             --ci-green             --regression-green             --required-certified-gold 112
+
+      - name: Resolve deployment URL
+        id: target
+        env:
+          MANUAL_URL: ${{ inputs.base_url }}
+          ENVIRONMENT_URL: ${{ github.event.deployment_status.environment_url }}
+          TARGET_URL: ${{ github.event.deployment_status.target_url }}
+        run: |
+          if [ -n "$MANUAL_URL" ]; then
+            echo "base_url=$MANUAL_URL" >> "$GITHUB_OUTPUT"
+          elif [ -n "$ENVIRONMENT_URL" ]; then
+            echo "base_url=$ENVIRONMENT_URL" >> "$GITHUB_OUTPUT"
+          elif [ -n "$TARGET_URL" ]; then
+            echo "base_url=$TARGET_URL" >> "$GITHUB_OUTPUT"
+          else
+            echo "No deployment URL available" >&2
+            exit 1
+          fi
+
+      - name: Production smoke test
+        run: python scripts/smoke_test.py "${{ steps.target.outputs.base_url }}"
